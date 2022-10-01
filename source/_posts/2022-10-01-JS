@@ -1,0 +1,129 @@
+---
+title: JavaScript Chap.1 ：變數、型別與弱型別特性
+date: 2022-05-10
+tags:
+  - JavaScript
+  - 前端
+description: 
+    在這篇文章會學到
+  * 如何命名規則
+  * 變數型別
+  * JS弱型別特性
+
+---
+
+在這篇文章會學到
+* 如何命名規則
+* 變數型別
+* JS弱型別特性
+
+## 如何命名規則
+
+在JaveScript命名變數基本上沒有限制，不論使用字母或數字或符號都可以。
+但唯一例外為　**系統預設函數(例如: var, let, if, else等等)**
+
+```
+let a = 1; //成立
+ler _a = 1; //成立
+let 1a = 1; //成立
+let var = 1; //不成立
+```
+
+此外，須注意命名變數以物件名詞為主，讓人能一眼了解變數代表意義。
+其中，建議以**小駝峰命名法（lower camel case）**　作為變數命名。
+
+```
+let tomPhone = 'iPhone'; 
+let tomWalletmoney = 100;
+let isOpen = true;
+```
+
+而一個變數只能使用 **一次** (不論是用var, let, const)，之後更改數值則直接加 = 即可。
+
+```
+let newNumber = 1 ; 
+let newNumber = 2 ; //系統會跳錯誤
+newNumber = 2 ; //系統通過
+```
+
+## 變數數值型別
+
+變數的值基本上分為基本型態和物件:
+
+基本型態:
+* Boolean
+* Null
+* Undefined
+* Number (NaN也屬於Number喔)
+* String
+* Symbol (new in ECMAScript 2015)
+
+物件：
+* Object
+
+判定數值型別使用 typeof ，範例如下：
+
+```
+let firstName = 'Tom';
+console.log(typeof(firstName)); // String
+
+let walletMoney;
+console.log(typeof(walletMoney)) // Undefined
+```
+
+一般常使用的數值型別轉換如下
+
+```
+// 字串String轉數字Number
+let string1 = '1'; // 此時為String
+console.log(typeof (Number(string1)); // 更改為Number
+
+// 數字Number轉字串String
+let number1 = 1; // 此時為Number
+console.log(typeof number1.toString()) // 更改為String
+```
+
+## JS 弱型別特性
+
+所謂的弱型別為　在宣告變數時不用特別定義其型別就能使用，代表語言為 JavaScript，
+反之，強行別為　在宣告變數時需要先定義其型別才能使用，代表語言為 TypeScript。
+
+因此基於JS弱型別特性，以下範例就能使其型別進行更改。
+
+
+```
+let a = '1'; // String
+let b = 1; // Number
+
+a + b = '11'; // String
+a - b = 0; // Number
+a * b = 1; // Number
+a / b = 1; // Number
+a * a = 1; // Number
++a = 1; //Number
+```
+
+以上是弱型別相關式子，若使用得當帶來的好處，但也有可能會造成bug。
+
+```
+null + [1,2,3]//> “null1,2,3”
+null + [“hello”, “world”] //> “nullhello,world”
+null+ {0: “hello”, 1: “world”} //> “null[object Object]”
+```
+
+以上就是本篇文章想告訴大家的。
+
+## CodeWars練習
+我在 codewars 找到一個適合用於弱型別的題目 [點我前往練習](https://www.codewars.com/kata/546e2562b03326a88e000020)
+
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+For example, if we run **9119** through the function, **811181** will come out, because **9^2** is **81** and **1^2** is **1**
+Note: The function accepts an integer and returns an integer
+
+可以利用 在物件前上 **+** 就可轉成number、 string兩個相乘 則變成 number 特性完成本題。
+```
+function squareDigits(num){
+  return +num.toString().split('').map(i => i*i).join('');
+}
+```
+
