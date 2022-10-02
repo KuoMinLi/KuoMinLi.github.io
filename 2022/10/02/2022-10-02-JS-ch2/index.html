@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在這篇文章會學到 * 記憶體是什麼? * 記憶體該如何計算? * 為什麼需要知道記憶體?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Chap.2 ：記憶體">
+<meta property="og:url" content="https://kuominli.github.io/2022/10/02/2022-10-02-JS-ch2/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:description" content="在這篇文章會學到 * 記憶體是什麼? * 記憶體該如何計算? * 為什麼需要知道記憶體?">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/LjbKamf.png">
+<meta property="og:image" content="https://i.imgur.com/JNIXSYn.png">
+<meta property="og:image" content="https://i.imgur.com/4H0FrYW.png">
+<meta property="og:image" content="https://i.imgur.com/iX0Cctr.png">
+<meta property="og:image" content="https://i.imgur.com/4SBRfjy.png">
+<meta property="og:image" content="https://i.imgur.com/SsDBeBd.png">
+<meta property="article:published_time" content="2022-10-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-02T08:46:19.682Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/LjbKamf.png">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/10/02/2022-10-02-JS-ch2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>JavaScript Chap.2 ：記憶體 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/10/02/2022-10-02-JS-ch2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript Chap.2 ：記憶體
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-02 00:00:00 / Modified: 16:46:19" itemprop="dateCreated datePublished" datetime="2022-10-02T00:00:00+08:00">2022-10-02</time>
+            </span>
+
+          
+            <div class="post-description">在這篇文章會學到 * 記憶體是什麼? * 記憶體該如何計算? * 為什麼需要知道記憶體?</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JavaScript-Chap-2-：-記憶體"><a href="#JavaScript-Chap-2-：-記憶體" class="headerlink" title="JavaScript Chap.2 ： 記憶體"></a>JavaScript Chap.2 ： 記憶體</h1><p>在這篇文章會學到</p>
+<ul>
+<li>記憶體是什麼?</li>
+<li>記憶體該如何計算?</li>
+<li>為什麼需要知道記憶體?</li>
+</ul>
+<h2 id="記憶體是什麼"><a href="#記憶體是什麼" class="headerlink" title="記憶體是什麼?"></a>記憶體是什麼?</h2><p>在網頁瀏覽器中記憶體扮演關鍵角色，在輸入指令時，其實都是經過以下步驟：<br>INPUT &gt; 記憶體 &gt; CPU 運算 &gt; 回傳記憶體 &gt; OUTPUT</p>
+<p>其中影片更告訴我們其中原理-<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=DKGZlaPlVLY&list=PLzdnOPI1iJNcsRwJhvksEo1tJqjIqWbN-&t=121s&ab_channel=Code.org">點我前往</a></p>
+<ol>
+<li>INPUT(鍵盤)：上輸入 「A」</li>
+<li>記憶體：記憶體接收到「指令」，傳送 CPU 該指令</li>
+<li>CPU運算：回傳給記憶體後，記憶體再去做</li>
+<li>回傳記憶體：記憶體將指令</li>
+<li>OUTPUT(螢幕)：螢幕顯示 A 的文字</li>
+</ol>
+<h2 id="記憶體該如何計算"><a href="#記憶體該如何計算" class="headerlink" title="記憶體該如何計算?"></a>記憶體該如何計算?</h2><p>觀看程式碼，請問用了幾個記憶體？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let a= 1;</span><br></pre></td></tr></table></figure>
+
+<p>這程式碼在JavaScript中，代表我們設立ａ變數並指定一個1的數值，可以很直覺的達出 1個。<br><img src="https://i.imgur.com/LjbKamf.png"></p>
+<p>但下一題呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a;</span><br><span class="line">a = 1;</span><br></pre></td></tr></table></figure>
+<p>答案一樣是一個嗎?<br>~<br>~<br>~<br>~</p>
+<p>錯!答案為 2個， 原因為因設立a時未給予數值，系統會自動給予undefined，之後再指定為1。<br><img src="https://i.imgur.com/JNIXSYn.png"></p>
+<p>那了解後，這一題呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">a += 1;</span><br></pre></td></tr></table></figure>
+<p>答案是一個嗎?<br>~<br>~<br>~<br>~<br>答案為三個，<br>我們拆解程式碼，可得到以下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a = 1;</span><br><span class="line">a = a+1;</span><br></pre></td></tr></table></figure>
+<p>會先指定a為1，再建立一個新數值1，最後相加　1+1&#x3D;2 ，a被賦予值2。<br><img src="https://i.imgur.com/4H0FrYW.png"></p>
+<p>若不熟悉，可以試試看下列問題是否能答對：</p>
+<h3 id="第-1-題"><a href="#第-1-題" class="headerlink" title="第 1 題"></a>第 1 題</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 觀看程式碼，請問用了幾個記憶體</span><br><span class="line">let a ;</span><br><span class="line">a = 1;</span><br><span class="line">a = &quot;hello&quot;;</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="第-2-題"><a href="#第-2-題" class="headerlink" title="第 2 題"></a>第 2 題</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 觀看程式碼，請問用了幾個記憶體</span><br><span class="line">let b = 3 ;</span><br><span class="line">b=5;</span><br><span class="line">let c = 4;</span><br><span class="line">b=8;</span><br><span class="line">c=c+b;</span><br><span class="line">let d = b+c;</span><br><span class="line">console.log(e)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="第-3-題"><a href="#第-3-題" class="headerlink" title="第 3 題"></a>第 3 題</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 觀看程式碼，請問用了幾個記憶體</span><br><span class="line">let e=0;</span><br><span class="line">e = 5;</span><br><span class="line">e = &quot;hello&quot;;</span><br><span class="line">e = true;</span><br><span class="line">e = 3;</span><br><span class="line">e+=1;</span><br><span class="line">console.log(e)</span><br></pre></td></tr></table></figure>
+
+<p>答案我放在最後，記得去看喔！</p>
+<p>另外，在網頁中，可以先開啟網頁開發工具(按下F12或右鍵選檢查)，點取記憶體欄位，可利用－堆積快照功能進行拍攝快照，就可以計算出目前網頁所使用的記憶體。</p>
+<p>選取快照畫面：<br><img src="https://i.imgur.com/iX0Cctr.png"></p>
+<p>得到目前之記憶體：<br><img src="https://i.imgur.com/4SBRfjy.png"></p>
+<h2 id="為什麼需要知道記憶體"><a href="#為什麼需要知道記憶體" class="headerlink" title="為什麼需要知道記憶體?"></a>為什麼需要知道記憶體?</h2><p>當新增變數、數值越多，也就代表需要準備越多的記憶體。<br>當CPU超過負荷時，其網頁就會開始延遲 (lag) 造成使用者體驗不佳，甚至導致系統崩潰。</p>
+<p>可以觀看<a target="_blank" rel="noopener" href="https://medium.com/starbugs/%E8%BA%AB%E7%82%BA-js-%E9%96%8B%E7%99%BC%E8%80%85-%E4%BD%A0%E4%B8%8D%E8%83%BD%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84%E8%A8%98%E6%86%B6%E9%AB%94%E7%AE%A1%E7%90%86%E6%A9%9F%E5%88%B6-d9db2fd66f8">莫大這篇文章</a>，可以理解更多為什麼我們要注意網頁記憶體的原因。</p>
+<p>以上就是本篇文章想告訴大家的。</p>
+<hr>
+<p>記憶體練習答案：<br><img src="https://i.imgur.com/SsDBeBd.png"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/01/2022-10-01-JS-ch1/" rel="prev" title="JavaScript Chap.1 ：變數、型別與弱型別特性">
+      <i class="fa fa-chevron-left"></i> JavaScript Chap.1 ：變數、型別與弱型別特性
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Chap-2-%EF%BC%9A-%E8%A8%98%E6%86%B6%E9%AB%94"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Chap.2 ： 記憶體</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%98%E6%86%B6%E9%AB%94%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.1.</span> <span class="nav-text">記憶體是什麼?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%98%E6%86%B6%E9%AB%94%E8%A9%B2%E5%A6%82%E4%BD%95%E8%A8%88%E7%AE%97"><span class="nav-number">1.2.</span> <span class="nav-text">記憶體該如何計算?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-1-%E9%A1%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">第 1 題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-2-%E9%A1%8C"><span class="nav-number">1.2.2.</span> <span class="nav-text">第 2 題</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-3-%E9%A1%8C"><span class="nav-number">1.2.3.</span> <span class="nav-text">第 3 題</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E8%A8%98%E6%86%B6%E9%AB%94"><span class="nav-number">1.3.</span> <span class="nav-text">為什麼需要知道記憶體?</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
