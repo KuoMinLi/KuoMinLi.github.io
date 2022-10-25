@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在這篇文章會提到 * 前端好朋友 - tailwindcss - 奶綠茶 * 提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰 * 導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全 * 單頁式應用中的無障礙設計 - 愷開">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022 MOPCON 心得分享">
+<meta property="og:url" content="https://kuominli.github.io/2022/10/25/2022-10-25-MOPCON/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:description" content="在這篇文章會提到 * 前端好朋友 - tailwindcss - 奶綠茶 * 提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰 * 導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全 * 單頁式應用中的無障礙設計 - 愷開">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/100744871/197223456-f7f6fd31-5855-4a06-b429-13d5865bb7da.png">
+<meta property="og:image" content="https://i.imgur.com/AOMnyuy.jpg">
+<meta property="og:image" content="https://i.imgur.com/n51fkrk.png">
+<meta property="og:image" content="https://i.imgur.com/U9ltpTd.png">
+<meta property="og:image" content="https://i.imgur.com/Uo2WttM.png">
+<meta property="article:published_time" content="2022-10-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-10-25T14:17:15.139Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="研討會心得">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/100744871/197223456-f7f6fd31-5855-4a06-b429-13d5865bb7da.png">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/10/25/2022-10-25-MOPCON/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>2022 MOPCON 心得分享 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/10/25/2022-10-25-MOPCON/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2022 MOPCON 心得分享
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-25 00:00:00 / Modified: 22:17:15" itemprop="dateCreated datePublished" datetime="2022-10-25T00:00:00+08:00">2022-10-25</time>
+            </span>
+
+          
+            <div class="post-description">在這篇文章會提到 * 前端好朋友 - tailwindcss - 奶綠茶 * 提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰 * 導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全 * 單頁式應用中的無障礙設計 - 愷開</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="2022-MOPCON-心得分享"><a href="#2022-MOPCON-心得分享" class="headerlink" title="2022 MOPCON 心得分享"></a>2022 MOPCON 心得分享</h1><p>這是我第一次參加網站開發相關的研討會，一切都蠻新奇的。<br>也見到許多大神本人，之前都是螢幕前看著文章，沒想到可以親眼看見本人。<br>以下針對我有實際參加演講的部分進行分享：</p>
+<ul>
+<li>前端好朋友 - tailwindcss - 奶綠茶</li>
+<li>提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰</li>
+<li>導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全</li>
+<li>單頁式應用中的無障礙設計 - 愷開</li>
+</ul>
+<hr>
+<h2 id="前端好朋友-tailwindcss-奶綠茶"><a href="#前端好朋友-tailwindcss-奶綠茶" class="headerlink" title="前端好朋友 - tailwindcss - 奶綠茶"></a>前端好朋友 - tailwindcss - 奶綠茶</h2><p>經典語句:</p>
+<ol>
+<li>為什麼要用tailwindCSS？  沒有為什麼，因為我是Lead，我說得算</li>
+<li>PM:我要不同語系顯示字型大小不同，十分鐘後要！　甲賽啦</li>
+<li>用hardcore方式手刻出來CSS，團隊看不懂不能複用，這樣等於沒有產值。</li>
+</ol>
+<p>Tailwind是近年來討論度最高的CSS框架，與Bootstrap5的優缺比較文章更是數不清<br>網路上也是各有支持者，以下是初步列出優缺點:</p>
+<p>兩者都有的優點: 格線系統、變數參數系統</p>
+<p>Bootstrap5 優點: 模組元件化可以直接拿來用<br>Bootstrap5 缺點: 模組記憶體大(約100MB)，要改主題及變數不容易 (用!important就好啦XD)</p>
+<p>Tailwind 優點: 有使用到才會下載，更改主題及方便，直接有config檔可以設定<br>Tailwind 缺點: 所有元件都必須設定(padding, border-radius等等), IE不能動…</p>
+<p>此外，Tailwind更支援自訂 Variant 狀態，像上述經典語句2，<br>就可以利用監聽語系切換按鈕，來更改字型大小達到PM所需功能，其可讀性也是極高。</p>
+<p>最後乃綠茶也用這段話來勉勵－</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">學習不需要為公司、長官或同事，</span><br><span class="line">不需要為別人，只為你自己</span><br><span class="line">——五倍紅寶石 高見龍</span><br></pre></td></tr></table></figure>
+
+<p>後記：<br>  實際使用tailwindCSS寫了個BMI計算機，感想為真是香阿，<br>  整個版面都是我的html-class，但不用想CSS命名就是讚!!<br><strong><a target="_blank" rel="noopener" href="https://github.com/KuoMinLi/BMI-calculator">BMI計算機-github</a></strong>    <strong><a href="https://kuominli.github.io/BMI-calculator/">BMI計算機-page</a></strong><br><img src="https://user-images.githubusercontent.com/100744871/197223456-f7f6fd31-5855-4a06-b429-13d5865bb7da.png" alt="image"></p>
+<hr>
+<h2 id="提升學習-UX-體驗的極致-以培訓軟體工程師為例-廖洧杰"><a href="#提升學習-UX-體驗的極致-以培訓軟體工程師為例-廖洧杰" class="headerlink" title="提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰"></a>提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰</h2><p>身為六角學院學生，一定要挺我們校長洧杰～～</p>
+<p>經典語句:</p>
+<ol>
+<li>用戶不會因為你做得多就記得你 by 峰值體驗</li>
+<li>輸出時間 &gt; 輸入時間，輸出強度會影響長期記憶的建立</li>
+<li>學習如何學習，保護自己的專注時間</li>
+</ol>
+<p>整場演講就像來分享這十年教學經驗，六角學院的核心價值</p>
+<p>透過四點　任務ｘ社群ｘ引導ｘ學習<br>讓不懂程式的學員能夠一步一步往前<br>我自己也是這樣學的，聽到這場演講心有戚戚焉</p>
+<p>最後也提到為什麼自我學習這麼重要？<br>因為前端變化非常快，找到工作只是開始，後續三年如何成長才更是關鍵</p>
+<ul>
+<li>3 年打底期，第一年死亡率最高，二到五年成長幅度最高<br><img src="https://i.imgur.com/AOMnyuy.jpg"></li>
+</ul>
+<hr>
+<h2 id="導入-Lighthouse-CI-作為前端應用效能的守門員-莫力全"><a href="#導入-Lighthouse-CI-作為前端應用效能的守門員-莫力全" class="headerlink" title="導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全"></a>導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全</h2><p>如果使用者進入網站發現loading超過三秒，跳出關閉的機率大於5成<br>因此檢視入口網站或關鍵服務網站渲染時間就很重要</p>
+<p>lighthouse就是可以判定其渲染效能給定分數的套件</p>
+<p>可以透過套件得到相關資訊，如下圖：</p>
+<p><img src="https://i.imgur.com/n51fkrk.png"></p>
+<p>可以透過每次的commit得到不同分數，藉此了解每次修改是否影響效能</p>
+<p>後續提到新套件要導入團隊會遇到情況，line團隊是採用種子制度<br>可以讓分布不同團隊的人一同推動達到同步執行新制度</p>
+<p>也透過自建資料庫將每次得到的分數記錄，作為後續專案討論及改善方向</p>
+<hr>
+<h2 id="單頁式應用中的無障礙設計-愷開"><a href="#單頁式應用中的無障礙設計-愷開" class="headerlink" title="單頁式應用中的無障礙設計 - 愷開"></a>單頁式應用中的無障礙設計 - 愷開</h2><p>原則: 什麼是無障礙設計？讓所有人都可以使用的設計</p>
+<p>其實實作無障礙功能，不會使流量增加，但會使產品使用者體驗更有溫度</p>
+<p>大部分知名網站公司當有在做此服務：youtube、google等..</p>
+<p><img src="https://i.imgur.com/U9ltpTd.png"></p>
+<p>實作上不要本末倒置，還是要先以功能為主<br>可以透過隱藏附註方式，讓使用者體驗維持</p>
+<p><img src="https://i.imgur.com/Uo2WttM.png"></p>
+<p>後記:<br>這一場演講是我聽完最有感觸的，雖然現在能力可能為不太足，但能在開發網站中，同時思考如何讓非一般使用者體驗提升，這件事真的讓我感到滿滿的溫暖，也默默許下希望未來自己能在這領域出一份力。</p>
+<hr>
+<p>參考資料:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hackmd.io/@mopcon/2022/%2F%40mopcon%2FBy4X4C4mi">MOPCON共筆文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.google.com/presentation/d/1zQLE94x096n7q_S4t8WkjtyEYdCFrU1vbpd8xnpORF0/edit#slide=id.g15a8d8a7d73_0_619">導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全</a></li>
+<li><a target="_blank" rel="noopener" href="https://speakerdeck.com/kjj6198/dan-ye-shi-ying-yong-zhong-de-wu-zhang-ai-she-ji?slide=58">單頁式應用中的無障礙設計 - 愷開</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E7%A0%94%E8%A8%8E%E6%9C%83%E5%BF%83%E5%BE%97/" rel="tag"># 研討會心得</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/17/2022-10-17-JS-ch5/" rel="prev" title="JavaScript Chap.5 ： 淺談RegExp">
+      <i class="fa fa-chevron-left"></i> JavaScript Chap.5 ： 淺談RegExp
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-MOPCON-%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB"><span class="nav-number">1.</span> <span class="nav-text">2022 MOPCON 心得分享</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%A5%BD%E6%9C%8B%E5%8F%8B-tailwindcss-%E5%A5%B6%E7%B6%A0%E8%8C%B6"><span class="nav-number">1.1.</span> <span class="nav-text">前端好朋友 - tailwindcss - 奶綠茶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E5%AD%B8%E7%BF%92-UX-%E9%AB%94%E9%A9%97%E7%9A%84%E6%A5%B5%E8%87%B4-%E4%BB%A5%E5%9F%B9%E8%A8%93%E8%BB%9F%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%82%BA%E4%BE%8B-%E5%BB%96%E6%B4%A7%E6%9D%B0"><span class="nav-number">1.2.</span> <span class="nav-text">提升學習 UX 體驗的極致 - 以培訓軟體工程師為例 - 廖洧杰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8E%E5%85%A5-Lighthouse-CI-%E4%BD%9C%E7%82%BA%E5%89%8D%E7%AB%AF%E6%87%89%E7%94%A8%E6%95%88%E8%83%BD%E7%9A%84%E5%AE%88%E9%96%80%E5%93%A1-%E8%8E%AB%E5%8A%9B%E5%85%A8"><span class="nav-number">1.3.</span> <span class="nav-text">導入 Lighthouse CI 作為前端應用效能的守門員 - 莫力全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%AE%E9%A0%81%E5%BC%8F%E6%87%89%E7%94%A8%E4%B8%AD%E7%9A%84%E7%84%A1%E9%9A%9C%E7%A4%99%E8%A8%AD%E8%A8%88-%E6%84%B7%E9%96%8B"><span class="nav-number">1.4.</span> <span class="nav-text">單頁式應用中的無障礙設計 - 愷開</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
