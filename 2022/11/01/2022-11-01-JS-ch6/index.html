@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在這篇文章會學到 * 什麼是陳述式 * 什麼是表達式 * 知道後有什麼幫助如何應用?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Chap.6 ：表達式陳述式">
+<meta property="og:url" content="https://kuominli.github.io/2022/11/01/2022-11-01-JS-ch6/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:description" content="在這篇文章會學到 * 什麼是陳述式 * 什麼是表達式 * 知道後有什麼幫助如何應用?">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-10-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-01T07:54:58.015Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/11/01/2022-11-01-JS-ch6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>JavaScript Chap.6 ：表達式陳述式 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/11/01/2022-11-01-JS-ch6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript Chap.6 ：表達式陳述式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-01 00:00:00 / Modified: 15:54:58" itemprop="dateCreated datePublished" datetime="2022-11-01T00:00:00+08:00">2022-11-01</time>
+            </span>
+
+          
+            <div class="post-description">在這篇文章會學到 * 什麼是陳述式 * 什麼是表達式 * 知道後有什麼幫助如何應用?</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JavaScript-Chap-6-：表達式陳述式"><a href="#JavaScript-Chap-6-：表達式陳述式" class="headerlink" title="JavaScript Chap.6 ：表達式陳述式"></a>JavaScript Chap.6 ：表達式陳述式</h1><p>在這篇文章會學到</p>
+<ul>
+<li>什麼是陳述式</li>
+<li>什麼是表達式</li>
+<li>知道後有什麼幫助如何應用?</li>
+</ul>
+<hr>
+<p>在學習JavaScript過程中，想必大家都會查看MDN網站，但其中總是有幾個詞語令人摸不著…<br>statement? expression? condition?<br>故想寫本篇文章來釐清以下名詞。</p>
+<p>先來個懶人包總結：<br>陳述式 statement: 會執行程式碼，但 <strong>不會回傳資料</strong><br>表達式 expression： 與陳述式相同會執行程式碼，但<strong>一定回傳資料</strong><br>狀態 condition: 是表達式的其中一種，指名回傳布林值(True or False)</p>
+<h2 id="什麼是陳述式"><a href="#什麼是陳述式" class="headerlink" title="什麼是陳述式"></a>什麼是陳述式</h2><p>陳述式有幾大分類，如：</p>
+<ol>
+<li>宣告（var、function）</li>
+<li>流程控制（block、if…else）</li>
+<li>迴圈（for、for…in）</li>
+<li>其它（import, export）</li>
+</ol>
+<p>其特徵都是 會執行程式碼內容，但是都不會回傳資料。</p>
+<p>其用處是在於判斷，宣告變數等等功能。</p>
+<p>額外特別提出－<br>函式陳述式，又稱具名函式 (Function Declaration)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function hello()&#123;</span><br><span class="line">    return &#x27;hello&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函式陳述式特點為函式都有名稱，例如上述名稱為hello，利用name的window屬性也可以抓到此名稱。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let name =  (function hello()&#123;</span><br><span class="line">    return &#x27;hello&#x27;</span><br><span class="line">&#125;).name</span><br><span class="line"></span><br><span class="line">console.log(name) // hello</span><br></pre></td></tr></table></figure>
+
+<p>但函式陳述式依然為陳述式，因此是不會回傳資料的。</p>
+<h2 id="什麼是表達式"><a href="#什麼是表達式" class="headerlink" title="什麼是表達式"></a>什麼是表達式</h2><p>表達式expression，顧名思義就是會表達會回傳一個資料　</p>
+<p><strong>會回傳資料!!!</strong><br><strong>會回傳資料!!!</strong><br><strong>會回傳資料!!!</strong></p>
+<p>很重要所以說三次！！</p>
+<p>常見項目如下:</p>
+<ol>
+<li>純值</li>
+<li>變數</li>
+<li>運算子</li>
+<li>執行函式</li>
+<li>正規表達式</li>
+<li>函式表達式</li>
+</ol>
+<p>所以舉凡像是 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 // 純值，表達式</span><br><span class="line">a // 變數，表達式</span><br><span class="line">1+1 // 運算子，表達式</span><br><span class="line">a=1 // 運算子，表達式</span><br><span class="line">a() // 執行函式，表達式</span><br><span class="line">/[A-Z]*/  // 正規表達式，表達式</span><br></pre></td></tr></table></figure>
+<p>以上皆是表達式</p>
+<p>特別想提的是－函式表達式<br>這邊就提到兩種很常聽到卻不太懂的名詞</p>
+<ul>
+<li>匿名函式：</li>
+</ul>
+<p>匿名函式也是一種函式表達式，其特點就是不用命名，且會回傳資料，其使用方式會與宣告變數名稱一同使用，程式碼如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const helloName = function ()&#123;</span><br><span class="line"> return &#x27;hello&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>helloName 為變數名稱，需使用此函數時，則加上()，即可呼叫此函式並回傳 hello<br>而本身function並沒有名稱，且就算多加名稱，也無法被呼叫，為此匿名函式特點，程式碼如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const helloName = function helloMe()&#123;</span><br><span class="line"> return &#x27;hello&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">helloName() // hello</span><br><span class="line">helloMe() // Uncaught ReferenceError: helloMe is not defined</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>立即函式：<br>立即函式，簡稱IIFE全名為Immediately Invoked Functions Expressions<br>從字面就能了解是立刻執行此函式，且因為是表達式所以也會回傳資料。<br>使用方法為 將函式外部加上小括號（），代表優先執行內部內容，後面再加上()，來呼叫執行此函式。</li>
+</ul>
+<p>其範例程式碼如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(function ()&#123;</span><br><span class="line"> return &#x27;hello&#x27;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<p>也因此可以立用此函式特性，將使用到一次的變數寫在其中，使用後立即消去，避免影響到全域變數。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var hi = &#x27;hello_outside&#x27;;</span><br><span class="line">console.log(hi);</span><br><span class="line">(function(global)&#123;</span><br><span class="line">    var hi = &#x27;hello_inside&#x27;;</span><br><span class="line">	global.hi = &#x27;hello_newoutside&#x27;;</span><br><span class="line">    console.log(hi);</span><br><span class="line">&#125;)(window);</span><br><span class="line">console.log(hi);</span><br><span class="line"></span><br><span class="line">結果為</span><br><span class="line">// hello_outside</span><br><span class="line">// hello_inside</span><br><span class="line">// hello_newoutside</span><br></pre></td></tr></table></figure>
+
+<h2 id="知道後有什麼幫助，如何應用"><a href="#知道後有什麼幫助，如何應用" class="headerlink" title="知道後有什麼幫助，如何應用"></a>知道後有什麼幫助，如何應用</h2><p>再回到本篇的初衷，知道陳述式表達式然後呢？</p>
+<p>以下舉　if…else 在MDN的範例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if (condition1)</span><br><span class="line">  statement1</span><br><span class="line">else if (condition2)</span><br><span class="line">  statement2</span><br><span class="line">else if (condition3)</span><br><span class="line">  statement3</span><br><span class="line">// …</span><br><span class="line">else</span><br><span class="line">  statementN</span><br></pre></td></tr></table></figure>
+
+<p>從上述文章就可知道，我們在condition中是要放能回傳 True or False 的表達式，而　statement　是放執行內容</p>
+<p>那接著在一題，Switch的範例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">switch (expression) &#123;</span><br><span class="line">  case value1:</span><br><span class="line">        //當 expression 的值符合 value1</span><br><span class="line">        //要執行的陳述句</span><br><span class="line">    [break;]</span><br><span class="line">  case value2:</span><br><span class="line">        //當 expression 的值符合 value2</span><br><span class="line">        //要執行的陳述句</span><br><span class="line">    [break;]</span><br><span class="line">  ...</span><br><span class="line">  case valueN:</span><br><span class="line">        //當 expression 的值符合 valueN</span><br><span class="line">        //要執行的陳述句</span><br><span class="line">    [break;]</span><br><span class="line">  [default:</span><br><span class="line">        //當 expression 的值都不符合上述條件</span><br><span class="line">        //要執行的陳述句</span><br><span class="line">    [break;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>從上述可得知，switch後括弧是要放表達式（通常為變數），其用處是要在去跟之後每個case的 value比對，有符合才執行。<br>但若我想要做上下限比對，或是我的比對條件不只一個，該怎麼執行呢？<br>可以利用表達式特性，先帶入True讓函式執行，在value中插入表達式（判別運算子），都判定回傳True即符合switch規則執行內部陳述式，範例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//錯誤做法 - 直觀代入變數</span><br><span class="line"></span><br><span class="line">switch(bmi)&#123;</span><br><span class="line">    case bmi &gt;= 18.5 &amp;&amp; bmi &lt; 24::</span><br><span class="line">      bmiStatus =  &#x27;normal&#x27;;</span><br><span class="line">      break;</span><br><span class="line">      </span><br><span class="line">//當代入bmi=20 時 case是回傳True，與20不同，故不會執行 </span><br><span class="line"></span><br><span class="line">//正確做法－先代入True</span><br><span class="line">  switch(True)&#123;</span><br><span class="line">    case bmi &lt; 18.5:</span><br><span class="line">      bmiStatus = &#x27;overThin&#x27;;</span><br><span class="line">      break;</span><br><span class="line"></span><br><span class="line">//這樣case 也是回傳True，故就會執行內部內容</span><br></pre></td></tr></table></figure>
+
+<p>以上就是本篇內容，希望大家看完後能對MDN內容更加理解。</p>
+<hr>
+<p>參考資料:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.casper.tw/development/2020/09/17/js-expression/">卡斯伯-JavaScript 表達式觀念及運用 - JS Expression</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10218937">IT邦-JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191549">IT邦-重新認識 JavaScript: Day 10 函式 Functions 的基本概念</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10193313">IT邦-Day20　立即呼叫的函式表示式(IIFE)</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">MDN-if…else</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements/switch">MDN-Switch</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/10/25/2022-10-25-MOPCON/" rel="prev" title="2022 MOPCON 心得分享">
+      <i class="fa fa-chevron-left"></i> 2022 MOPCON 心得分享
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Chap-6-%EF%BC%9A%E8%A1%A8%E9%81%94%E5%BC%8F%E9%99%B3%E8%BF%B0%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Chap.6 ：表達式陳述式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E9%99%B3%E8%BF%B0%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是陳述式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E8%A1%A8%E9%81%94%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">什麼是表達式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E9%81%93%E5%BE%8C%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B9%AB%E5%8A%A9%EF%BC%8C%E5%A6%82%E4%BD%95%E6%87%89%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">知道後有什麼幫助，如何應用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
