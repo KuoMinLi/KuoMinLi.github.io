@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="在這篇文章會學到 * 一般函式、高階函式 * 回乎函式是什麼 * 閉包是什麼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript CChap.7 ：高階函式、回乎函式、閉包">
+<meta property="og:url" content="https://kuominli.github.io/2022/11/22/2022-11-22-JS-ch7/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:description" content="在這篇文章會學到 * 一般函式、高階函式 * 回乎函式是什麼 * 閉包是什麼">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-22T06:37:43.247Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/11/22/2022-11-22-JS-ch7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>JavaScript CChap.7 ：高階函式、回乎函式、閉包 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/11/22/2022-11-22-JS-ch7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript CChap.7 ：高階函式、回乎函式、閉包
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-22 00:00:00 / Modified: 14:37:43" itemprop="dateCreated datePublished" datetime="2022-11-22T00:00:00+08:00">2022-11-22</time>
+            </span>
+
+          
+            <div class="post-description">在這篇文章會學到 * 一般函式、高階函式 * 回乎函式是什麼 * 閉包是什麼</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="JavaScript-Chap-7-：高階函式、回乎函式、閉包"><a href="#JavaScript-Chap-7-：高階函式、回乎函式、閉包" class="headerlink" title="JavaScript Chap.7 ：高階函式、回乎函式、閉包"></a>JavaScript Chap.7 ：高階函式、回乎函式、閉包</h1><p>在這篇文章會學到</p>
+<ul>
+<li>一般函式、高階函式</li>
+<li>回乎函式是什麼</li>
+<li>閉包是什麼</li>
+</ul>
+<hr>
+<p>在上一篇有提到函式有分表達式和陳述式，而大部分我們會使用到的是會回傳數值的表達式<br>我們就在進一步說明函式的功效:</p>
+<p>基本上函式有以下特點:</p>
+<ul>
+<li>函式可以執行: 可以進行陳述式計算</li>
+<li>函式回傳: 可以用表達式回傳</li>
+<li>立即函式: 他也可同時具備上述兩者特點</li>
+<li>重複調用性: 可重複呼叫</li>
+<li>帶入不同參數: 可傳入不同參數得出不同結果</li>
+</ul>
+<p>一般會用小寫命名來代表函式</p>
+<h2 id="一般函式、高階函式"><a href="#一般函式、高階函式" class="headerlink" title="一般函式、高階函式"></a>一般函式、高階函式</h2><p>一般函式又稱一級函式(First-Class Function)，通常是來說明這語言的特性，<br>能將函式當成物件、數值來看待，也代表說我們可以把一個函式當成參考傳入另一函式<br>以下為範例code:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function SayHello(fn,data)&#123;</span><br><span class="line">    return fn(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所以這也就是JavaScript 適合用於Fuctional Progamming的原因。</p>
+<p>高階函式(High Order Function) 為 具有函數參數的函數。<br>這是什麼意思?<br>也就是能接收函式作參數，又或者可回傳函式等功能<br>例如：我們很常使用的 map, filter, reduce都是高階函式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">以下為map常用方式，來拆解使用邏輯</span><br><span class="line">let ary =[1, 2, 3];</span><br><span class="line">ary.map(item=&gt; item*2)</span><br><span class="line"></span><br><span class="line">可拆解成</span><br><span class="line">let newAry = ary.map(</span><br><span class="line">    function(item)&#123;</span><br><span class="line">        return item *2 </span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">也可以拆更細</span><br><span class="line"></span><br><span class="line">function aryMap (fn, ary)&#123;</span><br><span class="line">    let newAry =[];</span><br><span class="line">    for (let i=o; i&lt; ary.length; i++)&#123;</span><br><span class="line">        let ans = fn(ary[i]);</span><br><span class="line">        newAry.push(ans)</span><br><span class="line">    &#125;</span><br><span class="line">    return newAry</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="回呼函式是什麼"><a href="#回呼函式是什麼" class="headerlink" title="回呼函式是什麼"></a>回呼函式是什麼</h2><p>回呼函式(callback function )是基於JavaScript有著高階函式特性<br>能將外層函式以參數形式代入，後再依照排列順序執行，<br>講白話點就是－把函式當作另一個函式的參數，透過另一個函式來呼叫它<br>範例code如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const firstfn = function() &#123;</span><br><span class="line">      console.log(&#x27;1,我應該後執行&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">const secondfn = function(firstfn ) &#123;</span><br><span class="line">      console.log(&#x27;2,我要先執行&#x27;);</span><br><span class="line">      firstfn();</span><br><span class="line">    &#125;</span><br><span class="line">secondfn(firstfn)</span><br><span class="line"></span><br><span class="line">// 出來結果為</span><br><span class="line">// &quot;2,我要先執行&quot;</span><br><span class="line">// &quot;1,我應該後執行&#x27;&quot;</span><br><span class="line">// 這就是利用callback特性，讓函式可以調用函式並起依照自己需要執行</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="閉包是什麼"><a href="#閉包是什麼" class="headerlink" title="閉包是什麼"></a>閉包是什麼</h2><p>閉包 closure 則是基於在回呼函式(callback function )所誕生的<br>其主要觀念就是能從內部函式訪問外部函式的作用域<br>做到以下特點：</p>
+<ul>
+<li>個別函式變數獨立</li>
+<li>隱藏商業邏輯變數</li>
+</ul>
+<p>範例code如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function sellBread(str) &#123;</span><br><span class="line">      const breadPrice = 100;</span><br><span class="line">      let count = 0;</span><br><span class="line">      const name = str;</span><br><span class="line">      return function (c) &#123;</span><br><span class="line">        count += c;</span><br><span class="line">        console.log(`$&#123;name&#125;今天賣出了 $&#123;count&#125; 麵包，總共賺了 $&#123;breadPrice * count&#125; 元`);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    const todayTotal = sellBread(&#x27;小明&#x27;);</span><br><span class="line">    todayTotal(1);</span><br><span class="line">    todayTotal(10);</span><br><span class="line">    todayTotal(10);</span><br><span class="line"></span><br><span class="line">    const huaTotal = sellBread(&#x27;小華&#x27;)</span><br><span class="line">    huaTotal (1)</span><br><span class="line">    huaTotal (2)</span><br><span class="line"></span><br><span class="line">// 出來結果為</span><br><span class="line">// &quot;小明今天賣出了 1 麵包，總共賺了 100 元&quot;</span><br><span class="line">// &quot;小明今天賣出了 11 麵包，總共賺了 1100 元&quot;</span><br><span class="line">// &quot;小明今天賣出了 21 麵包，總共賺了 2100 元&quot;</span><br><span class="line">// &quot;小華今天賣出了 1 麵包，總共賺了 100 元&quot;</span><br><span class="line">// &quot;小華今天賣出了 3 麵包，總共賺了 300 元&quot;</span><br></pre></td></tr></table></figure>
+
+<p>從上面範例，我們可理解到</p>
+<ol>
+<li>閉包能在sellBread內放入breadPrice價格，而外部函式調用卻無法取得</li>
+<li>運用閉包能讓內部函式調用外部函式作用域數值</li>
+<li>閉能設立不同變數指向同一個函式(sellBread)，其回傳結果也是獨立區分</li>
+</ol>
+<p>以上就是本篇內容，希望大家看完後能對函式更加理解。</p>
+<hr>
+<p>參考資料:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Closures#%E4%BD%BF%E7%94%A8%E9%96%89%E5%8C%85%E6%A8%A1%E6%93%AC%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95">MDN-閉包</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.casper.tw/development/2020/09/26/js-closure/">卡斯伯-閉包，原來這就是閉包啊！</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10224519">IT邦-JS 原力覺醒 Day19 - 一級函式與高階函式</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10192739">IT邦-重新認識 JavaScript: Day 18 Callback Function 與 IIFE</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/01/2022-11-01-JS-ch6/" rel="prev" title="JavaScript Chap.6 ：表達式陳述式">
+      <i class="fa fa-chevron-left"></i> JavaScript Chap.6 ：表達式陳述式
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Chap-7-%EF%BC%9A%E9%AB%98%E9%9A%8E%E5%87%BD%E5%BC%8F%E3%80%81%E5%9B%9E%E4%B9%8E%E5%87%BD%E5%BC%8F%E3%80%81%E9%96%89%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Chap.7 ：高階函式、回乎函式、閉包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E3%80%81%E9%AB%98%E9%9A%8E%E5%87%BD%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">一般函式、高階函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E5%91%BC%E5%87%BD%E5%BC%8F%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.2.</span> <span class="nav-text">回呼函式是什麼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%89%E5%8C%85%E6%98%AF%E4%BB%80%E9%BA%BC"><span class="nav-number">1.3.</span> <span class="nav-text">閉包是什麼</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
