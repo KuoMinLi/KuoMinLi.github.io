@@ -20,21 +20,23 @@
     var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify">
+  <meta name="description" content="當初為什麼報名這堂課？ 當初得知JS直播班有專題討論，就覺得一定要來報名，可以由校長一同討論發想專題，對於我不擅長設計的理工腦，真是一大福音！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Chap.3 ： 型別轉換方法">
-<meta property="og:url" content="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/index.html">
+<meta property="og:title" content="六角學院-2022秋季JS直播班心得">
+<meta property="og:url" content="https://kuominli.github.io/2022/12/05/2022-12-05-JS-hexschool/index.html">
 <meta property="og:site_name" content="KuoMin&#39;s Blog">
-<meta property="og:description" content="在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify">
+<meta property="og:description" content="當初為什麼報名這堂課？ 當初得知JS直播班有專題討論，就覺得一定要來報名，可以由校長一同討論發想專題，對於我不擅長設計的理工腦，真是一大福音！">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-03T15:54:42.874Z">
+<meta property="og:image" content="https://i.imgur.com/MmR8CiM.png">
+<meta property="article:published_time" content="2022-12-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-05T13:49:53.899Z">
 <meta property="article:author" content="KuoMin Li">
-<meta property="article:tag" content="前端">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="心得">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/MmR8CiM.png">
 
-<link rel="canonical" href="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/">
+<link rel="canonical" href="https://kuominli.github.io/2022/12/05/2022-12-05-JS-hexschool/">
 
 
 <script id="page-configurations">
@@ -47,7 +49,7 @@
   };
 </script>
 
-  <title>JavaScript Chap.3 ： 型別轉換方法 | KuoMin's Blog</title>
+  <title>六角學院-2022秋季JS直播班心得 | KuoMin's Blog</title>
   
 
 
@@ -152,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/12/05/2022-12-05-JS-hexschool/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +167,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript Chap.3 ： 型別轉換方法
+          六角學院-2022秋季JS直播班心得
         </h1>
 
         <div class="post-meta">
@@ -176,11 +178,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-10-03 00:00:00 / Modified: 23:54:42" itemprop="dateCreated datePublished" datetime="2022-10-03T00:00:00+08:00">2022-10-03</time>
+              <time title="Created: 2022-12-05 00:00:00 / Modified: 21:49:53" itemprop="dateCreated datePublished" datetime="2022-12-05T00:00:00+08:00">2022-12-05</time>
             </span>
 
           
-            <div class="post-description">在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify</div>
+            <div class="post-description">當初為什麼報名這堂課？ 當初得知JS直播班有專題討論，就覺得一定要來報名，可以由校長一同討論發想專題，對於我不擅長設計的理工腦，真是一大福音！</div>
 
         </div>
       </header>
@@ -191,46 +193,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="JavaScript-Chap-3-：-型別轉換方法"><a href="#JavaScript-Chap-3-：-型別轉換方法" class="headerlink" title="JavaScript Chap.3 ： 型別轉換方法"></a>JavaScript Chap.3 ： 型別轉換方法</h1><p>在這篇文章會學到</p>
-<ul>
-<li>型別轉換方法</li>
-<li>字串(String)轉換成數值(Number) - parseInt、Number</li>
-<li>數值(Number)轉換成字串(String) - toString、JSON.stringify</li>
-</ul>
-<h2 id="型別轉換方法"><a href="#型別轉換方法" class="headerlink" title="型別轉換方法"></a>型別轉換方法</h2><p>在第一篇有提到 每個變數在設立數值後，都有對應型別產生。</p>
-<p>因此若要更改其型別除了使用弱型別特性來改變，另一方式就是利用JS本身內建的高階函式進行改變。</p>
-<h3 id="字串-String-轉換成-數值-Number"><a href="#字串-String-轉換成-數值-Number" class="headerlink" title="字串(String) 轉換成 數值(Number)"></a>字串(String) 轉換成 數值(Number)</h3><p>由字串轉換成數值有兩種常見的方法，分別為parseInt、Number。</p>
-<ul>
-<li>parseInt ，使用方法為parseInt(string, radix)</li>
-</ul>
-<p>string 為本次轉換之字串，若不是字串，會先自動用toString()進行轉換。<br>radix 為定義數值進位方法，若沒定義，預設為十進位，<br>此外，string也會將前後空白去除，但當遇到字串中未符合轉譯數值則會直接回傳。</p>
-<p>以下為範例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&#x27;123&#x27;) // 123 </span><br><span class="line">parseInt(&#x27;1A23&#x27;) // 1 ，遇到A無法解析，則只回傳１</span><br><span class="line">parseInt(&#x27;1A23&#x27;,16) // 6691，十六進位方法可以解析Ａ</span><br><span class="line">parseInt(&#x27; 123 &#x27;) // 123，可去除前後空白</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Number ，使用方法為 Number(value)</li>
-</ul>
-<p>此方法不受限制，所有型別皆能對應：</p>
-<ol>
-<li>傳入 undefined ，　回傳 null</li>
-<li>傳入 null ，　回傳 0</li>
-<li>傳入 Boolean ，false 回傳 0，true則回傳1</li>
-<li>傳入 number　， 回傳 number</li>
-<li>傳入 string ， 回傳 number，但是以十進位為主，且遇到不能轉換的會直接回傳 0 或</li>
-</ol>
-<h3 id="字串-String-轉換成-數值-Number-1"><a href="#字串-String-轉換成-數值-Number-1" class="headerlink" title="字串(String) 轉換成 數值(Number)"></a>字串(String) 轉換成 數值(Number)</h3><p>由數值轉換成字串有兩種常見的方法，分別為toString、JSON.stringify。</p>
-<ul>
-<li>toString ，使用方法為 Number.toString(radix)</li>
-</ul>
-<p>與parseInt 相似，一樣具備能自定義進位，預設一樣是十進位。<br>範例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(123).toString()  // &quot;123&quot;</span><br><span class="line">(123).toString(2) // &quot;1111011&quot;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>JSON.stringify ，使用方法為　JSON.stringify(value)</li>
-</ul>
-<p>其value不受型別限制，大部分用於物件矩陣上。<br>範例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(42) // &quot;42&quot;</span><br><span class="line">JSON.stringify(true) // &quot;true&quot;</span><br><span class="line">JSON.stringify(null) // &quot;null&quot;</span><br><span class="line">JSON.stringify(&#x27;Hello World&#x27;) // &quot;&quot;Hello World&quot;&quot;，字串會在外面再包一層引號！</span><br></pre></td></tr></table></figure>
-
-<p>以上就是本篇文章想告訴大家的，謝謝大家收看。</p>
+        <h1 id="六角學院-2022秋季JS直播班"><a href="#六角學院-2022秋季JS直播班" class="headerlink" title="六角學院-2022秋季JS直播班"></a>六角學院-2022秋季JS直播班</h1><p><img src="https://i.imgur.com/MmR8CiM.png"></p>
+<h2 id="當初為什麼報名這堂課？"><a href="#當初為什麼報名這堂課？" class="headerlink" title="當初為什麼報名這堂課？"></a>當初為什麼報名這堂課？</h2><p>當初得知JS直播班有專題討論，就覺得一定要來報名，可以由校長一同討論發想專題，對於我不擅長設計的理工腦，真是一大福音！報名之後就是滿滿的乾貨課程，從user story、wireframe甚至連資料庫設計都講包到了。</p>
+<h2 id="第一週-第九週的學習過程"><a href="#第一週-第九週的學習過程" class="headerlink" title="第一週~第九週的學習過程"></a>第一週~第九週的學習過程</h2><p>身為已經跑過一遍JS線上影音課程的我來說，每周最期待的是週三－卡斯伯老師的核心課程，每周上課都在懷疑自己了解的JS是如此不深根，但透過老師一題題的範例堆疊，也讓我理解到JS核心架構以及面試時答題邏輯，最後也提到框架概念，讓我深深覺得JS要好好學阿。</p>
+<h2 id="最大的收獲是？"><a href="#最大的收獲是？" class="headerlink" title="最大的收獲是？"></a>最大的收獲是？</h2><p>每週的刷題真的有感受到六角學院的用心，把知識點規畫很好，讓初學者可以逐步跟上，而我也可以從中再次訓練使用ES6語法進行coding。<br>透過專題討論，專題發想實作也不再困難了，校長的一句- “我都在那，有問題就問” ，讓我不禁暖心起來，也發現課程不只在學JS，更是在教如何學習阿。</p>
+<h2 id="最喜歡直播班的哪些活動？"><a href="#最喜歡直播班的哪些活動？" class="headerlink" title="最喜歡直播班的哪些活動？"></a>最喜歡直播班的哪些活動？</h2><p>透過小組討論，可以了解到每個人寫coding卡關的原因，也可以互相觀摩code，藉此寫出更簡潔的code。</p>
+<h2 id="身為學長姐，分享些想入坑的新同學一些勉勵的話"><a href="#身為學長姐，分享些想入坑的新同學一些勉勵的話" class="headerlink" title="身為學長姐，分享些想入坑的新同學一些勉勵的話"></a>身為學長姐，分享些想入坑的新同學一些勉勵的話</h2><p>不論是初入前端領域 或是 像我一樣已經學過一遍線上課程，都應該再來參加一次直播班，透過一同學習，以及六角學院的精心安排的課程，兩三個月的時間會讓自己成長很多，會發現其實寫code一點也不難，有想法就能做出來的！</p>
 
     </div>
 
@@ -240,8 +208,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E5%BF%83%E5%BE%97/" rel="tag"># 心得</a>
           </div>
 
         
@@ -250,13 +218,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/10/02/2022-10-02-JS-ch2/" rel="prev" title="JavaScript Chap.2 ：記憶體">
-      <i class="fa fa-chevron-left"></i> JavaScript Chap.2 ：記憶體
+    <a href="/2022/11/22/2022-11-22-JS-ch7/" rel="prev" title="JavaScript Chap.7 ：高階函式、回乎函式、閉包">
+      <i class="fa fa-chevron-left"></i> JavaScript Chap.7 ：高階函式、回乎函式、閉包
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/10/07/2022-10-07-JS-ch4/" rel="next" title="JavaScript Chap.4 ： 變數的宣告與提升">
-      JavaScript Chap.4 ： 變數的宣告與提升 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -315,7 +280,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Chap-3-%EF%BC%9A-%E5%9E%8B%E5%88%A5%E8%BD%89%E6%8F%9B%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Chap.3 ： 型別轉換方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%8B%E5%88%A5%E8%BD%89%E6%8F%9B%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">型別轉換方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-String-%E8%BD%89%E6%8F%9B%E6%88%90-%E6%95%B8%E5%80%BC-Number"><span class="nav-number">1.1.1.</span> <span class="nav-text">字串(String) 轉換成 數值(Number)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-String-%E8%BD%89%E6%8F%9B%E6%88%90-%E6%95%B8%E5%80%BC-Number-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">字串(String) 轉換成 數值(Number)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E8%A7%92%E5%AD%B8%E9%99%A2-2022%E7%A7%8B%E5%AD%A3JS%E7%9B%B4%E6%92%AD%E7%8F%AD"><span class="nav-number">1.</span> <span class="nav-text">六角學院-2022秋季JS直播班</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%95%B6%E5%88%9D%E7%82%BA%E4%BB%80%E9%BA%BC%E5%A0%B1%E5%90%8D%E9%80%99%E5%A0%82%E8%AA%B2%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">當初為什麼報名這堂課？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%80%B1-%E7%AC%AC%E4%B9%9D%E9%80%B1%E7%9A%84%E5%AD%B8%E7%BF%92%E9%81%8E%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">第一週~第九週的學習過程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E7%9A%84%E6%94%B6%E7%8D%B2%E6%98%AF%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">最大的收獲是？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%96%9C%E6%AD%A1%E7%9B%B4%E6%92%AD%E7%8F%AD%E7%9A%84%E5%93%AA%E4%BA%9B%E6%B4%BB%E5%8B%95%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">最喜歡直播班的哪些活動？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BA%AB%E7%82%BA%E5%AD%B8%E9%95%B7%E5%A7%90%EF%BC%8C%E5%88%86%E4%BA%AB%E4%BA%9B%E6%83%B3%E5%85%A5%E5%9D%91%E7%9A%84%E6%96%B0%E5%90%8C%E5%AD%B8%E4%B8%80%E4%BA%9B%E5%8B%89%E5%8B%B5%E7%9A%84%E8%A9%B1"><span class="nav-number">1.5.</span> <span class="nav-text">身為學長姐，分享些想入坑的新同學一些勉勵的話</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
