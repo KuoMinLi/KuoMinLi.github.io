@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="轉職前端工程師 - React 面試題">
+<meta property="og:url" content="https://kuominli.github.io/2022/12/22/2022-12-22-INT-REACT/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-22T15:35:41.458Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="面試">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/12/22/2022-12-22-INT-REACT/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>轉職前端工程師 - React 面試題 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/12/22/2022-12-22-INT-REACT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          轉職前端工程師 - React 面試題
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-22 00:00:00 / Modified: 23:35:41" itemprop="dateCreated datePublished" datetime="2022-12-22T00:00:00+08:00">2022-12-22</time>
+            </span>
+
+          
+            <div class="post-description">[object Object]</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近開始準備面試，挑戰日更作為找到工作前的挑戰吧！<br>以下是一些可能會在 React 面試中被問到的題目:</p>
+<h2 id="請解釋-React-的基本概念，包括虛擬-DOM、組件和-props。"><a href="#請解釋-React-的基本概念，包括虛擬-DOM、組件和-props。" class="headerlink" title="請解釋 React 的基本概念，包括虛擬 DOM、組件和 props。"></a>請解釋 React 的基本概念，包括虛擬 DOM、組件和 props。</h2><p>虛擬 DOM 是一種用於描述 UI 的抽象表示。當組件的狀態更改時，React 會使用虛擬 DOM 算法將最小的 DOM 操作序列傳遞到真正的 DOM 中。這樣做可以減少 DOM 操作的數量，以便更有效地更新 UI。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">function UserCard(props) &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h3&gt;&#123;props.name&#125;&lt;/h3&gt;</span><br><span class="line">      &lt;p&gt;&#123;props.email&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;UserCard name=&quot;Alice&quot; email=&quot;alice@example.com&quot; /&gt;</span><br><span class="line">      &lt;UserCard name=&quot;Bob&quot; email=&quot;bob@example.com&quot; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請解釋-React-的生命週期方法，以及它們在應用程序中的作用。"><a href="#請解釋-React-的生命週期方法，以及它們在應用程序中的作用。" class="headerlink" title="請解釋 React 的生命週期方法，以及它們在應用程序中的作用。"></a>請解釋 React 的生命週期方法，以及它們在應用程序中的作用。</h2><p>在 React 中，組件有一系列的生命週期方法，這些方法會在組件的不同階段被自動調用。</p>
+<p>生命週期方法可以分為三大類：初始化、更新和摧毀。每個生命週期方法都有其特定的用途，並且可以在應用程序的不同階段使用。</p>
+<p>初始化生命週期方法：</p>
+<ul>
+<li>constructor()：在建立組件實例時調用。</li>
+<li>getDerivedStateFromProps()：在接收到新的 props 時調用。</li>
+<li>render()：用於渲染組件。</li>
+<li>componentDidMount()：在組件被渲染到 DOM 後調用。</li>
+</ul>
+<p>更新生命週期方法：</p>
+<ul>
+<li>shouldComponentUpdate()：在組件將要更新時調用。</li>
+<li>getSnapshotBeforeUpdate()：在組件將要更新後調用。</li>
+<li>render()：用於更新組件。</li>
+<li>componentDidUpdate()：在組件更新後調用。</li>
+</ul>
+<p>摧毀生命週期方法：</p>
+<ul>
+<li>componentWillUnmount()：在組件將要被摧毀時調用。</li>
+</ul>
+<hr>
+<h2 id="請描述-React-中的事件處理方式。"><a href="#請描述-React-中的事件處理方式。" class="headerlink" title="請描述 React 中的事件處理方式。"></a>請描述 React 中的事件處理方式。</h2><p>主要是利用 On + 動作 (例如 click, change等) 綁定在元件上，進行事件監聽，來觸發指定函式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const Input = (&#123; value, onChange &#125;) =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;input value=&#123;value&#125; onChange=&#123;onChange&#125; /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; &#123;</span><br><span class="line">  const [text, setText] = useState(&#x27;&#x27;);</span><br><span class="line"></span><br><span class="line">  const handleChange = (event) =&gt; &#123;</span><br><span class="line">    setText(event.target.value);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;Input value=&#123;text&#125; onChange=&#123;handleChange&#125; /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請解釋-React-中的狀態（state）和屬性（props）之間的區別。"><a href="#請解釋-React-中的狀態（state）和屬性（props）之間的區別。" class="headerlink" title="請解釋 React 中的狀態（state）和屬性（props）之間的區別。"></a>請解釋 React 中的狀態（state）和屬性（props）之間的區別。</h2><p>狀態（state）是組件內部的數據。它只能在組件內部讀寫，且只能由組件自身更改。通常，狀態是用於存儲組件內部的動態數據，例如用戶輸入或組件的 UI 選項。</p>
+<p>屬性（props）是組件的輸入。它們可以由父組件傳遞給子組件，且子組件無法修改它們。通常，屬性用於向子組件傳遞數據或在父組件和子組件之間傳遞消息。</p>
+<hr>
+<h2 id="請描述如何在-React-中通過-props-傳遞數據。"><a href="#請描述如何在-React-中通過-props-傳遞數據。" class="headerlink" title="請描述如何在 React 中通過 props 傳遞數據。"></a>請描述如何在 React 中通過 props 傳遞數據。</h2><p>在 React 中，你可以通過 props 傳遞數據給子組件。props 是組件的輸入，可以由父組件傳遞給子組件。</p>
+<p>例如，在你的示例中，App 組件使用 Counter 組件來渲染兩個計數器。它通過 initialCount 屬性傳遞了初始計數器值給 Counter 組件。Counter 組件可以通過 props 參數訪問 initialCount 屬性的值。</p>
+<p>要傳遞 props 給子組件，只需在 JSX 中使用屬性語法將屬性名稱和值傳遞給子組件即可。例如，App 組件中的以下行代碼將 initialCount 屬性傳遞給 Counter 組件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Counter initialCount=&#123;0&#125; /&gt;</span><br><span class="line"></span><br><span class="line">const [count, setCount] = useState(props.initialCount);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請解釋什麼是路由，並描述如何在-React-中使用路由。"><a href="#請解釋什麼是路由，並描述如何在-React-中使用路由。" class="headerlink" title="請解釋什麼是路由，並描述如何在 React 中使用路由。"></a>請解釋什麼是路由，並描述如何在 React 中使用路由。</h2><p>路由是一種技術，它允許您在應用程式中切換不同的內容或頁面，而無需重新載入整個網頁。路由通常會使用 URL 來標識不同的內容或頁面，並且能夠支援前進和後退操作。</p>
+<p>可藉由 React-Route 將 url 指定到對應的 component</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; BrowserRouter as Router, Route &#125; from &#x27;react-router-dom&#x27;;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;Router&gt;</span><br><span class="line">      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;</span><br><span class="line">      &lt;Route path=&quot;/about&quot; component=&#123;About&#125; /&gt;</span><br><span class="line">      &lt;Route path=&quot;/contact&quot; component=&#123;Contact&#125; /&gt;</span><br><span class="line">    &lt;/Router&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請描述如何在-React-中使用-AJAX-請求。"><a href="#請描述如何在-React-中使用-AJAX-請求。" class="headerlink" title="請描述如何在 React 中使用 AJAX 請求。"></a>請描述如何在 React 中使用 AJAX 請求。</h2><p>可以使用 useEffect 或 SWR 作使用</p>
+<figure class="highlight js"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> useSWR <span class="keyword">from</span> <span class="string">&#x27;swr&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">UserList</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; data, error &#125; = <span class="title function_">useSWR</span>(<span class="string">&#x27;/api/users&#x27;</span>, <span class="function">() =&gt;</span> axios.<span class="title function_">get</span>(<span class="string">&#x27;/api/users&#x27;</span>).<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="property">data</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Error: &#123;error.message&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!data) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Loading...<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;data.map(user =&gt; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;user.id&#125;</span>&gt;</span>&#123;user.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      ))&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="請解釋什麼是-redux，以及它如何與-React-配合使用。"><a href="#請解釋什麼是-redux，以及它如何與-React-配合使用。" class="headerlink" title="請解釋什麼是 redux，以及它如何與 React 配合使用。"></a>請解釋什麼是 redux，以及它如何與 React 配合使用。</h2><p>redux 是一種全域狀態管理工具，透過reducer 和 dispatch來運作，其中　reducer 帶有兩個參數- initstate 為儲存狀態的變亮，action 則為接收函式狀態更改的請求，利用switch case 來判定；　Dispatch 是一個函數，用於向 reducer 發送狀態更改的請求。在子組件中，你可以通過調用 dispatch 函數並傳遞 action 對象來請求狀態更改。</p>
+<p>最外層利用 Provider去傳遞其狀態 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">// 創建 Redux 儲存庫</span><br><span class="line">const store = createStore(counterReducer);</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">      &lt;Counter /&gt;</span><br><span class="line">    &lt;/Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import React from &#x27;react&#x27;;</span><br><span class="line">import &#123; createStore &#125; from &#x27;redux&#x27;;</span><br><span class="line">import &#123; Provider, useSelector, useDispatch &#125; from &#x27;react-redux&#x27;;</span><br><span class="line"></span><br><span class="line">// 創建 reducer 函數</span><br><span class="line">function counterReducer(state = 0, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case &#x27;INCREMENT&#x27;:</span><br><span class="line">      return state + 1;</span><br><span class="line">    case &#x27;DECREMENT&#x27;:</span><br><span class="line">      return state - 1;</span><br><span class="line">    default:</span><br><span class="line">      return state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 創建 Redux 儲存庫</span><br><span class="line">const store = createStore(counterReducer);</span><br><span class="line"></span><br><span class="line">function Counter() &#123;</span><br><span class="line">  // 使用 useSelector hook 訪問狀態</span><br><span class="line">  const count = useSelector(state =&gt; state);</span><br><span class="line"></span><br><span class="line">  // 使用 useDispatch hook 訪問 dispatch 函數</span><br><span class="line">  const dispatch = useDispatch();</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;count&#125;&lt;/h1&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; dispatch(&#123; type: &#x27;INCREMENT&#x27; &#125;)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; dispatch(&#123; type: &#x27;DECREMENT&#x27; &#125;)&#125;&gt;-&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function App() &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">      &lt;Counter /&gt;</span><br><span class="line">    &lt;/Provider&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default App;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請解釋如何在-React-中使用樣式（styles）。"><a href="#請解釋如何在-React-中使用樣式（styles）。" class="headerlink" title="請解釋如何在 React 中使用樣式（styles）。"></a>請解釋如何在 React 中使用樣式（styles）。</h2><p>例如使用第三方庫（如 style-components 或 CSS in JS）或是使用 CSS 模組（CSS modules）。這些方法可以讓您更方便地管理您的樣式，並且能夠更好地與 React 的組件化風格相結合。</p>
+<p>此外，您也可以使用第三方 CSS 預處理器（如 Sass 或 Less）來寫您的樣式，並使用 Webpack 或其他工具來處理和配置您的樣式。</p>
+<p>也可以結合Tailwind CSS在JSX 中加入 JS 函式進行判定<br>例如:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const isopen = true;</span><br><span class="line"></span><br><span class="line">const app = () =&gt; &#123;</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;&gt;</span><br><span class="line">            &lt;p className=&#123;` text-lg + $&#123;isopen? &#x27;text-red&#x27;: &#x27;text-green&#x27;&#125; `&#125;&gt; test&lt;/p&gt;</span><br><span class="line">        &lt;/&gt;</span><br><span class="line">        </span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請描述如何在-React-中渲染列表和表格。"><a href="#請描述如何在-React-中渲染列表和表格。" class="headerlink" title="請描述如何在 React 中渲染列表和表格。"></a>請描述如何在 React 中渲染列表和表格。</h2><p>可透過 高階函式 map 將資料搭配jsx渲染出列表及表格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const items = [&#x27;item 1&#x27;, &#x27;item 2&#x27;, &#x27;item 3&#x27;];</span><br><span class="line"></span><br><span class="line">const List = () =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &#123;items.map(item =&gt; (</span><br><span class="line">        &lt;li key=&#123;item&#125;&gt;&#123;item&#125;&lt;/li&gt;</span><br><span class="line">      ))&#125;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上資料來源為 ChatGPT</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"># React</a>
+              <a href="/tags/%E9%9D%A2%E8%A9%A6/" rel="tag"># 面試</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/20/2022-12-20-JS-ETF-PROJECT/" rel="prev" title="六角學院-專題成果發表-ETF自由配">
+      <i class="fa fa-chevron-left"></i> 六角學院-專題成果發表-ETF自由配
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B-React-%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%EF%BC%8C%E5%8C%85%E6%8B%AC%E8%99%9B%E6%93%AC-DOM%E3%80%81%E7%B5%84%E4%BB%B6%E5%92%8C-props%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">請解釋 React 的基本概念，包括虛擬 DOM、組件和 props。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B-React-%E7%9A%84%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AE%83%E5%80%91%E5%9C%A8%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E3%80%82"><span class="nav-number">2.</span> <span class="nav-text">請解釋 React 的生命週期方法，以及它們在應用程序中的作用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E6%8F%8F%E8%BF%B0-React-%E4%B8%AD%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%99%95%E7%90%86%E6%96%B9%E5%BC%8F%E3%80%82"><span class="nav-number">3.</span> <span class="nav-text">請描述 React 中的事件處理方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B-React-%E4%B8%AD%E7%9A%84%E7%8B%80%E6%85%8B%EF%BC%88state%EF%BC%89%E5%92%8C%E5%B1%AC%E6%80%A7%EF%BC%88props%EF%BC%89%E4%B9%8B%E9%96%93%E7%9A%84%E5%8D%80%E5%88%A5%E3%80%82"><span class="nav-number">4.</span> <span class="nav-text">請解釋 React 中的狀態（state）和屬性（props）之間的區別。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E6%8F%8F%E8%BF%B0%E5%A6%82%E4%BD%95%E5%9C%A8-React-%E4%B8%AD%E9%80%9A%E9%81%8E-props-%E5%82%B3%E9%81%9E%E6%95%B8%E6%93%9A%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">請描述如何在 React 中通過 props 傳遞數據。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B%E4%BB%80%E9%BA%BC%E6%98%AF%E8%B7%AF%E7%94%B1%EF%BC%8C%E4%B8%A6%E6%8F%8F%E8%BF%B0%E5%A6%82%E4%BD%95%E5%9C%A8-React-%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E3%80%82"><span class="nav-number">6.</span> <span class="nav-text">請解釋什麼是路由，並描述如何在 React 中使用路由。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E6%8F%8F%E8%BF%B0%E5%A6%82%E4%BD%95%E5%9C%A8-React-%E4%B8%AD%E4%BD%BF%E7%94%A8-AJAX-%E8%AB%8B%E6%B1%82%E3%80%82"><span class="nav-number">7.</span> <span class="nav-text">請描述如何在 React 中使用 AJAX 請求。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B%E4%BB%80%E9%BA%BC%E6%98%AF-redux%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AE%83%E5%A6%82%E4%BD%95%E8%88%87-React-%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8%E3%80%82"><span class="nav-number">8.</span> <span class="nav-text">請解釋什麼是 redux，以及它如何與 React 配合使用。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B%E5%A6%82%E4%BD%95%E5%9C%A8-React-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%A8%A3%E5%BC%8F%EF%BC%88styles%EF%BC%89%E3%80%82"><span class="nav-number">9.</span> <span class="nav-text">請解釋如何在 React 中使用樣式（styles）。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E6%8F%8F%E8%BF%B0%E5%A6%82%E4%BD%95%E5%9C%A8-React-%E4%B8%AD%E6%B8%B2%E6%9F%93%E5%88%97%E8%A1%A8%E5%92%8C%E8%A1%A8%E6%A0%BC%E3%80%82"><span class="nav-number">10.</span> <span class="nav-text">請描述如何在 React 中渲染列表和表格。</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
