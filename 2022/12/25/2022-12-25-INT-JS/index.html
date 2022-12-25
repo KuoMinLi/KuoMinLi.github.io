@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="這篇是JS的面試題，比較基本一些，也把不熟的特意列出">
+<meta property="og:type" content="article">
+<meta property="og:title" content="轉職前端工程師 - JavaScript  面試題">
+<meta property="og:url" content="https://kuominli.github.io/2022/12/25/2022-12-25-INT-JS/index.html">
+<meta property="og:site_name" content="KuoMin&#39;s Blog">
+<meta property="og:description" content="這篇是JS的面試題，比較基本一些，也把不熟的特意列出">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-25T15:52:55.775Z">
+<meta property="article:author" content="KuoMin Li">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="面試">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://kuominli.github.io/2022/12/25/2022-12-25-INT-JS/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>轉職前端工程師 - JavaScript  面試題 | KuoMin's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">KuoMin's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/12/25/2022-12-25-INT-JS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="KuoMin Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KuoMin's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          轉職前端工程師 - JavaScript  面試題
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-12-25 00:00:00 / Modified: 23:52:55" itemprop="dateCreated datePublished" datetime="2022-12-25T00:00:00+08:00">2022-12-25</time>
+            </span>
+
+          
+            <div class="post-description">這篇是JS的面試題，比較基本一些，也把不熟的特意列出</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這篇是JS的面試題，比較基本一些，也把不熟的特意列出</p>
+<hr>
+<h2 id="var、let、const-的差別？"><a href="#var、let、const-的差別？" class="headerlink" title="var、let、const 的差別？"></a>var、let、const 的差別？</h2><p>我的作答：<br>var 是函式作用域，他如果寫在最外層就變成全域環境<br>let 是區塊作用域 ，　let 是可以被改變，const則不行 </p>
+<p>ChatGPT回答：</p>
+<ul>
+<li>var 是函式作用域，也就是說，如果在函式內使用 var 定義變量，那麼該變量只能在該函式內訪問。如果在最外層使用 var 定義變量，則該變量會成為全域變量，在整個程式中都可以訪問。</li>
+<li>let 是區塊作用域，也就是說，如果在某個區塊（例如函式、條件語句或循環語句）內使用 let 定義變量，那麼該變量只能在該區塊內訪問。</li>
+<li>const 是區塊作用域，並且變量的值是不可變的。也就是說，一旦使用 const 定義變量，就必須立即給該變量賦值，且之後不能再改變該變量的值。</li>
+</ul>
+<hr>
+<h2 id="Array-forEach、Array-map、Array-filter、Array-reduce-的差別？"><a href="#Array-forEach、Array-map、Array-filter、Array-reduce-的差別？" class="headerlink" title="Array.forEach、Array.map、Array.filter、Array.reduce 的差別？"></a>Array.forEach、Array.map、Array.filter、Array.reduce 的差別？</h2><p>我的作答：<br>Array.forEach，會依序將Array內容依序執行函式一遍，但不會回傳任何值<br>Array.map，會依序將Array內容依序執行函式一遍，且每執行一次函數回傳一次值，最後回傳結果為陣列<br>Array.filter，會依序將Array內容依函式(可加入正規表達式篩選)執行，，且每執行一次函數回傳一次為true的值，最後回傳結果為陣列<br>Array.reduce，會傳入兩組參數，分別為acc, cur，函式內會依序執行acc+cur等函式，最後須給上acc預設值;通常使用在需要累加的情境，會得到累加後的結果，最後回傳結果為值</p>
+<p>ChatGPT回答：</p>
+<ul>
+<li>Array.forEach 方法會對陣列中的每個元素依次執行指定的函式，但不會回傳任何值。</li>
+<li>Array.map 方法會對陣列中的每個元素依次執行指定的函式，並回傳一個新的陣列，新陣列的每個元素都是指定函式的回傳值。</li>
+<li>Array.filter 方法會對陣列中的每個元素依次執行指定的函式，並回傳一個新的陣列，新陣列只包含函式回傳值為 true 的元素。</li>
+<li>Array.reduce 方法會對陣列中的每個元素依次執行指定的函式，並按照指定的順序累加每個元素的值，最後回傳累加結果。</li>
+</ul>
+<p>總的來說，Array.forEach 方法會對陣列中的每個元素執行函式，但不會回傳任何值；Array.map 和 Array.filter 方法會對陣列中的每個元素執行函式，並回傳新的陣列；Array.reduce 方法會對陣列中的每個元素執行函式，並根據指定順序累加每個元素的值</p>
+<hr>
+<h2 id="知道event-bubbling和capture的事件傳遞流程嗎？"><a href="#知道event-bubbling和capture的事件傳遞流程嗎？" class="headerlink" title="知道event bubbling和capture的事件傳遞流程嗎？"></a>知道event bubbling和capture的事件傳遞流程嗎？</h2><p>我的回答：<br>為事件傳遞的差別，一般預設為false是為bubbling，也就是從觸發函式的節點node到最外層，反之若設為true，則是為capture，則從最外層body傳入到最裡面node。</p>
+<p>ChatGPT回答：</p>
+<ul>
+<li><p>事件冒泡（event bubbling）是指當發生事件時，事件會從觸發函式的節點開始，然後一層層往外傳遞。也就是說，先從觸發函式的節點處理事件，然後是其父節點，再是其父節點的父節點，以此類推，直到最外層的 body 節點為止。</p>
+</li>
+<li><p>事件捕獲（event capturing）是指當發生事件時，事件會從最外層的 body 節點開始，然後一層層往裡傳遞。也就是說，先從最外層的 body 節點處理事件，然後是 body 節點的子節點，再是子節點的子節點，以此類推，直到觸發函式的節點為止。</p>
+</li>
+</ul>
+<p>在使用 addEventListener 方法添加事件監聽器時，可以使用第三個參數指事件傳遞模式。如果第三個參數為 false，則使用事件冒泡模式；如果第三個參數為 true，則使用事件捕獲模式。</p>
+<p>為了確保程式的可維護性和可讀性，建議使用事件冒泡模式。因為事件冒泡模式是預設模式，所以通常不需要指定第三個參數。</p>
+<p>總的來說，事件冒泡（event bubbling）是指當發生事件時，事件會從觸發函式的節點開始，一層層往外傳遞，直到最外層的 body 節點為止；事件捕獲（event capturing）是指當發生事件時，事件會從最外層的 body 節點開始，一層層往裡傳遞，直到觸發函式的節點為止。</p>
+<hr>
+<h2 id="知道-debounce-和-throttle-的差異嗎？"><a href="#知道-debounce-和-throttle-的差異嗎？" class="headerlink" title="知道 debounce 和 throttle 的差異嗎？"></a>知道 debounce 和 throttle 的差異嗎？</h2><p>我的回答:<br>debonuce是防抖動，是防止不斷觸發某一函式，則限制只執行最後一次<br>throttle則是閥門，是防止函式運作時太多次的點擊，則限制觸發後固定時間後才能再次執行</p>
+<p>ChatGPT回答：<br>debounce 和 throttle 是兩種用於限制事件觸發頻率的技術，通常用於頁面交互或動畫效果中。</p>
+<ul>
+<li>debounce（防抖動）是指在事件觸發後，等待一段指定的時間，如果在這段時間內再次觸發事件，則重新計算指定的時間。通常使用 debounce 技術來防止不斷觸發某一函式，只執行最後一次。</li>
+<li>throttle（閥門）是指在事件觸發後，等待一段指定的時間，如果在這段時間內再次觸發事件，則忽略該事件。通常使用 throttle 技術來防止函式運作時太多次的觸發，只在指定的時間後才能再次執行。</li>
+</ul>
+<p>總的來說，debounce（防抖動）是指在事件觸發後等待一段指定的時間，只執行最後一次；throttle（閥門）是指在事件觸發後等待一段指定的時間，忽略其他觸發。</p>
+<hr>
+<h2 id="請解釋「淺拷貝」和「深拷貝」"><a href="#請解釋「淺拷貝」和「深拷貝」" class="headerlink" title="請解釋「淺拷貝」和「深拷貝」"></a>請解釋「淺拷貝」和「深拷貝」</h2><p>我的回答:<br>淺拷貝是指物件拷貝時只複製第一層屬性，第二層則維持指向原本物件，可使用[…array]或 {…object} 做使用<br>深拷貝是指將物件先全部轉為JSON格式，再從字串重新轉型合併成物件，這樣可避免第二層則維持指向原本物件的狀況，可使用　JSON.stringify(obj) 以及 JSON.parse(JSONString) 搭配使用</p>
+<p>ChatGPT回答：<br>在 JavaScript 中，複製（copy）指的是將一個物件或陣列複製到另一個物件或陣列中，而拷貝（clone）則是將一個物件或陣列複製到另一個新的物件或陣列中。</p>
+<p>淺拷貝（shallow copy）是指在複製物件時，只複製第一層的屬性，第二層的屬性則維持指向原本的物件。在 JavaScript 中，可以使用 spread operator（展開運算子）或 Object.assign() 方法來實現淺拷貝。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const array = [1, 2, 3];</span><br><span class="line">const shallowCopy = [...array];</span><br><span class="line"></span><br><span class="line">const object = &#123; a: 1, b: 2, c: 3 &#125;;</span><br><span class="line">const shallowCopy = &#123; ...object &#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>深拷貝（deep copy）是指在複製物件時，將物件中所有的屬性都複製到新的物件中。在 JavaScript 中，可以使用 JSON.stringify() 和 JSON.parse() 方法來實現深拷貝。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const object = &#123; a: 1, b: &#123; c: 2 &#125; &#125;;</span><br><span class="line">const deepCopy = JSON.parse(JSON.stringify(object));</span><br></pre></td></tr></table></figure>
+
+<p>總的來說，淺拷貝（shallow copy）是指在複製物件時，只複製第一層的屬性，第二層的屬性則維持指向原本的物件；深拷貝（deep copy）是指在複製物件時，將物件中所有的屬性都複製到新的物件中。</p>
+<hr>
+<h2 id="什麼是閉包（closure）？用途是什麼？"><a href="#什麼是閉包（closure）？用途是什麼？" class="headerlink" title="什麼是閉包（closure）？用途是什麼？"></a>什麼是閉包（closure）？用途是什麼？</h2><p>我的回答：<br>JavaScript有一級語言的特性，能將函式帶入參數執行函式，就可以達到callback function的效果，而閉包就是利用函式內變數只能存在lexical environment的特性，再透過函式能變參數，就可以去訪問外部的函式取得變數</p>
+<p>提供三個特性：<br>封裝私有變數<br>提供動態作用域<br>支援非同步程式設計</p>
+<p>ChatGPT回答：<br>閉包是指一個函式和它所關聯的變數環境（lexical environment）。在 JavaScript 中，當一個函式被定義時，它就會有自己的變數環境。當函式被執行時，它可以訪問自己變數環境中的變數，也可以訪問它所在變數環境中的變數。因此，閉包是一種可以訪問外部變數的函式。</p>
+<p>閉包有以下用途：</p>
+<p>封裝私有變數：通過閉包可以將變數的作用範圍限制在函式內部，使得變數變為私有變數，只能在函式內部被訪問。<br>提供動態作用域：在 JavaScript 中，變數的作用域是靜態的，也就是變數的作用範圍是在變數被定義時就已經確定的。但是，通過閉包，可以實現動態作用域，即變數的作用範圍是在函式被執行時才確定的。<br>支援非同步程式設計：在 JavaScript 中，非同步程式設計常常使用回調函式（callback function）來實現。通過閉包，可以將回調函式和它需要的變數封裝在一起，實現非同步程式設計</p>
+<hr>
+<h2 id="在不同情況下-this-指向對象會是什麼？"><a href="#在不同情況下-this-指向對象會是什麼？" class="headerlink" title="在不同情況下 this 指向對象會是什麼？"></a>在不同情況下 this 指向對象會是什麼？</h2><p>我的回答：<br>在一般函式下，會依照呼叫函式時前方物件為何，若沒帶物件則為window，但在嚴格模式下則無效。<br>在箭頭函式下，則指向宣告函式時本身物件，且不會依呼叫時物件不同而改變。</p>
+<p>ChatGPT回答：<br>在 JavaScript 中，this 的指向會根據函式的呼叫方式而有所不同。下面列出了幾種常見的 this 指向情況：</p>
+<p>在普通函式中，this 指向的是被呼叫的物件。如果函式沒有被呼叫的物件，則 this 指向全域物件（在瀏覽器中是 window 物件）。</p>
+<p>在箭頭函式中，this 指向的是函式宣告時的物件。箭頭函式不會改變 this 的指向，因此在箭頭函式中 this 的指向是固定的。</p>
+<p>在构造函式中，this 指向的是新建的物件。构造函式是用來新建物件的函式，在构造函式中使用 this 就可以為新建的物件賦值。</p>
+<p>在 call、apply 或 bind 方法中，this 指向的是指定的物件。這些方法可以改變函式的 this 指向，使得函式可以在不同的物件中被呼叫。</p>
+<hr>
+<h2 id="使用過什麼方法處理-AJAX？"><a href="#使用過什麼方法處理-AJAX？" class="headerlink" title="使用過什麼方法處理 AJAX？"></a>使用過什麼方法處理 AJAX？</h2><p>我的回答：<br>AJAX為非同步執行緒，可利用XML, fetch, axios 來搭配promise 或 async&#x2F;await使用，藉此讓他變成單執行緒</p>
+<p>ChatGPT回答：<br>在 JavaScript 中，可以使用不同的方法處理 AJAX 請求，包括 XMLHttpRequest、fetch API 和第三方函式庫（如 jQuery 的 $.ajax() 方法）。</p>
+<p>使用 XMLHttpRequest 處理 AJAX 請求的做法是利用 XMLHttpRequest 物件的 open() 和 send() 方法，在請求發送後檢查 readyState 屬性，當 readyState 的值為 4 時就可以取得回應。</p>
+<p>使用 fetch API 處理 AJAX 請求的方式是利用 fetch() 函式，它可以透過 Promise 封裝回應，並且可以使用 async&#x2F;await 語法來處理非同步流程。</p>
+<p>第三方函式庫（如 jQuery）提供了簡化 AJAX 請求的方法，可以使用 $.ajax() 或是 $.get()、$.post() 等方法進行請求。</p>
+<p>$.ajax() 方法接受一個參數，是一個物件，其中可以設定請求的設定，包括：</p>
+<p>url: 要發送請求的位址<br>method: 請求的方法（預設為 “GET”）<br>data: 要發送的資料<br>dataType: 期望的回應類型（如 “json”、”text” 等）<br>success: 請求成功時的回調函式<br>error: 請求失敗時的回調函式</p>
+<hr>
+<h2 id="非同步與同步操作混用時的輸出順序？"><a href="#非同步與同步操作混用時的輸出順序？" class="headerlink" title="非同步與同步操作混用時的輸出順序？"></a>非同步與同步操作混用時的輸出順序？</h2><p>我的回答：<br>先執行同步的，再執行非同步的</p>
+<p>ChatGPT回答：<br>同步操作會先執行，然後再執行非同步操作。</p>
+<p>例如，在下列程式碼中，先輸出 “Start”，再輸出 “Finish”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#x27;Start&#x27;);</span><br><span class="line">setTimeout(() =&gt; console.log(&#x27;Finish&#x27;), 0);</span><br></pre></td></tr></table></figure>
+<p>但是，如果你在非同步操作中使用了 await 關鍵字，則會等到非同步操作完成後再執行下一行程式碼。</p>
+<p>例如，在下列程式碼中，會先輸出 “Start”，然後等待 1 秒後再輸出 “Finish”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">async function example() &#123;</span><br><span class="line">  console.log(&#x27;Start&#x27;);</span><br><span class="line">  await new Promise(resolve =&gt; setTimeout(resolve, 1000));</span><br><span class="line">  console.log(&#x27;Finish&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">example();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="請解釋-x3D-x3D-和-x3D-x3D-x3D-的差異"><a href="#請解釋-x3D-x3D-和-x3D-x3D-x3D-的差異" class="headerlink" title="請解釋 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的差異"></a>請解釋 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的差異</h2><p>我的回答：<br>是為嚴格等於和寬鬆等於的差別，在寬鬆下，數字型別1和文字型別1會回傳true，但在嚴格下則為false</p>
+<p>ChatGPT回答：<br>在 JavaScript 中，”&#x3D;&#x3D;” 是寬鬆相等（loose equality）運算子，它會自動將值轉換成相同的數據類型再進行比較。例如，數字 1 和文字 “1” 在寬鬆相等的情況下會被視為相等的。</p>
+<p>相反的，”&#x3D;&#x3D;&#x3D;” 是嚴格相等（strict equality）運算子，它會比較值和數據類型。因此，數字 1 和文字 “1” 在嚴格相等的情況下會被視為不相等。</p>
+<p>總之，建議在 JavaScript 中使用 “&#x3D;&#x3D;&#x3D;” 運算子。除非你有特別的需求，否則 “&#x3D;&#x3D;” 運算子不應該被使用。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/%E9%9D%A2%E8%A9%A6/" rel="tag"># 面試</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/22/2022-12-22-INT-REACT/" rel="prev" title="轉職前端工程師 - React 面試題">
+      <i class="fa fa-chevron-left"></i> 轉職前端工程師 - React 面試題
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#var%E3%80%81let%E3%80%81const-%E7%9A%84%E5%B7%AE%E5%88%A5%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">var、let、const 的差別？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array-forEach%E3%80%81Array-map%E3%80%81Array-filter%E3%80%81Array-reduce-%E7%9A%84%E5%B7%AE%E5%88%A5%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Array.forEach、Array.map、Array.filter、Array.reduce 的差別？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E9%81%93event-bubbling%E5%92%8Ccapture%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%82%B3%E9%81%9E%E6%B5%81%E7%A8%8B%E5%97%8E%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">知道event bubbling和capture的事件傳遞流程嗎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A5%E9%81%93-debounce-%E5%92%8C-throttle-%E7%9A%84%E5%B7%AE%E7%95%B0%E5%97%8E%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">知道 debounce 和 throttle 的差異嗎？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B%E3%80%8C%E6%B7%BA%E6%8B%B7%E8%B2%9D%E3%80%8D%E5%92%8C%E3%80%8C%E6%B7%B1%E6%8B%B7%E8%B2%9D%E3%80%8D"><span class="nav-number">5.</span> <span class="nav-text">請解釋「淺拷貝」和「深拷貝」</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E9%96%89%E5%8C%85%EF%BC%88closure%EF%BC%89%EF%BC%9F%E7%94%A8%E9%80%94%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">什麼是閉包（closure）？用途是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%B8%8D%E5%90%8C%E6%83%85%E6%B3%81%E4%B8%8B-this-%E6%8C%87%E5%90%91%E5%B0%8D%E8%B1%A1%E6%9C%83%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">在不同情況下 this 指向對象會是什麼？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%81%8E%E4%BB%80%E9%BA%BC%E6%96%B9%E6%B3%95%E8%99%95%E7%90%86-AJAX%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">使用過什麼方法處理 AJAX？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%88%87%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C%E6%B7%B7%E7%94%A8%E6%99%82%E7%9A%84%E8%BC%B8%E5%87%BA%E9%A0%86%E5%BA%8F%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">非同步與同步操作混用時的輸出順序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AB%8B%E8%A7%A3%E9%87%8B-x3D-x3D-%E5%92%8C-x3D-x3D-x3D-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">10.</span> <span class="nav-text">請解釋 &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的差異</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">KuoMin Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KuoMin Li</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
