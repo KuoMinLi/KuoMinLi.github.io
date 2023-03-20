@@ -28,7 +28,7 @@
 <meta property="og:description" content="在這篇文章會學到 * 什麼是陳述式 * 什麼是表達式 * 知道後有什麼幫助如何應用?">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-01T07:54:58.015Z">
+<meta property="article:modified_time" content="2023-03-20T15:05:41.528Z">
 <meta property="article:author" content="KuoMin Li">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="JavaScript">
@@ -174,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-11-01 00:00:00 / Modified: 15:54:58" itemprop="dateCreated datePublished" datetime="2022-11-01T00:00:00+08:00">2022-11-01</time>
+              <time title="Created: 2022-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-11-01T00:00:00+08:00">2022-11-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-20 23:05:41" itemprop="dateModified" datetime="2023-03-20T23:05:41+08:00">2023-03-20</time>
+              </span>
 
           
             <div class="post-description">在這篇文章會學到 * 什麼是陳述式 * 什麼是表達式 * 知道後有什麼幫助如何應用?</div>
@@ -212,7 +218,7 @@
 <p>額外特別提出－<br>函式陳述式，又稱具名函式 (Function Declaration)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function hello()&#123;</span><br><span class="line">    return &#x27;hello&#x27;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>函式陳述式特點為函式都有名稱，例如上述名稱為hello，利用name的window屬性也可以抓到此名稱。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let name =  (function hello()&#123;</span><br><span class="line">    return &#x27;hello&#x27;</span><br><span class="line">&#125;).name</span><br><span class="line"></span><br><span class="line">console.log(name) // hello</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(hello.name) // hello</span><br></pre></td></tr></table></figure>
 
 <p>但函式陳述式依然為陳述式，因此是不會回傳資料的。</p>
 <h2 id="什麼是表達式"><a href="#什麼是表達式" class="headerlink" title="什麼是表達式"></a>什麼是表達式</h2><p>表達式expression，顧名思義就是會表達會回傳一個資料　</p>
@@ -366,12 +372,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
