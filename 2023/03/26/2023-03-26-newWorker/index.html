@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"kuominli.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify">
+  <meta name="description" content="在剛轉職成前端工程師後，加入公司拿到電腦後，以下為自身經驗歸納可朝下面三面向準備：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript Chap.3 ： 型別轉換方法">
-<meta property="og:url" content="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/index.html">
+<meta property="og:title" content="前端KM - 在新手期如何跟上專案">
+<meta property="og:url" content="https://kuominli.github.io/2023/03/26/2023-03-26-newWorker/index.html">
 <meta property="og:site_name" content="KuoMin&#39;s Blog">
-<meta property="og:description" content="在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify">
+<meta property="og:description" content="在剛轉職成前端工程師後，加入公司拿到電腦後，以下為自身經驗歸納可朝下面三面向準備：">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-02T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-03T15:54:42.874Z">
+<meta property="article:published_time" content="2023-03-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-03-26T12:22:24.416Z">
 <meta property="article:author" content="KuoMin Li">
-<meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="前端">
+<meta property="article:tag" content="工作經驗">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/">
+<link rel="canonical" href="https://kuominli.github.io/2023/03/26/2023-03-26-newWorker/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>JavaScript Chap.3 ： 型別轉換方法 | KuoMin's Blog</title>
+  <title>前端KM - 在新手期如何跟上專案 | KuoMin's Blog</title>
   
 
 
@@ -152,7 +152,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2022/10/03/2022-10-03-JS-ch3/">
+    <link itemprop="mainEntityOfPage" href="https://kuominli.github.io/2023/03/26/2023-03-26-newWorker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript Chap.3 ： 型別轉換方法
+          前端KM - 在新手期如何跟上專案
         </h1>
 
         <div class="post-meta">
@@ -176,11 +176,11 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-10-03 00:00:00 / Modified: 23:54:42" itemprop="dateCreated datePublished" datetime="2022-10-03T00:00:00+08:00">2022-10-03</time>
+              <time title="Created: 2023-03-26 00:00:00 / Modified: 20:22:24" itemprop="dateCreated datePublished" datetime="2023-03-26T00:00:00+08:00">2023-03-26</time>
             </span>
 
           
-            <div class="post-description">在這篇文章會學到 * 型別轉換方法 * 字串(String)轉換成數值(Number) - parseInt、Number * 數值(Number)轉換成字串(String) - toString、JSON.stringify</div>
+            <div class="post-description">在剛轉職成前端工程師後，加入公司拿到電腦後，以下為自身經驗歸納可朝下面三面向準備：</div>
 
         </div>
       </header>
@@ -191,46 +191,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="JavaScript-Chap-3-：-型別轉換方法"><a href="#JavaScript-Chap-3-：-型別轉換方法" class="headerlink" title="JavaScript Chap.3 ： 型別轉換方法"></a>JavaScript Chap.3 ： 型別轉換方法</h1><p>在這篇文章會學到</p>
-<ul>
-<li>型別轉換方法</li>
-<li>字串(String)轉換成數值(Number) - parseInt、Number</li>
-<li>數值(Number)轉換成字串(String) - toString、JSON.stringify</li>
-</ul>
-<h2 id="型別轉換方法"><a href="#型別轉換方法" class="headerlink" title="型別轉換方法"></a>型別轉換方法</h2><p>在第一篇有提到 每個變數在設立數值後，都有對應型別產生。</p>
-<p>因此若要更改其型別除了使用弱型別特性來改變，另一方式就是利用JS本身內建的高階函式進行改變。</p>
-<h3 id="字串-String-轉換成-數值-Number"><a href="#字串-String-轉換成-數值-Number" class="headerlink" title="字串(String) 轉換成 數值(Number)"></a>字串(String) 轉換成 數值(Number)</h3><p>由字串轉換成數值有兩種常見的方法，分別為parseInt、Number。</p>
-<ul>
-<li>parseInt ，使用方法為parseInt(string, radix)</li>
-</ul>
-<p>string 為本次轉換之字串，若不是字串，會先自動用toString()進行轉換。<br>radix 為定義數值進位方法，若沒定義，預設為十進位，<br>此外，string也會將前後空白去除，但當遇到字串中未符合轉譯數值則會直接回傳。</p>
-<p>以下為範例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parseInt(&#x27;123&#x27;) // 123 </span><br><span class="line">parseInt(&#x27;1A23&#x27;) // 1 ，遇到A無法解析，則只回傳１</span><br><span class="line">parseInt(&#x27;1A23&#x27;,16) // 6691，十六進位方法可以解析Ａ</span><br><span class="line">parseInt(&#x27; 123 &#x27;) // 123，可去除前後空白</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Number ，使用方法為 Number(value)</li>
-</ul>
-<p>此方法不受限制，所有型別皆能對應：</p>
+        <p>在剛轉職成前端工程師後，加入公司拿到電腦後<br>以下為自身經驗歸納可朝下面三面向準備：</p>
 <ol>
-<li>傳入 undefined ，　回傳 null</li>
-<li>傳入 null ，　回傳 0</li>
-<li>傳入 Boolean ，false 回傳 0，true則回傳1</li>
-<li>傳入 number　， 回傳 number</li>
-<li>傳入 string ， 回傳 number，但是以十進位為主，且遇到不能轉換的會直接回傳 0 或</li>
+<li>專案環境建立</li>
+<li>專案協作流程(git, git flow, code review 等等)</li>
+<li>專案開發流程(框架, 套件等)</li>
 </ol>
-<h3 id="字串-String-轉換成-數值-Number-1"><a href="#字串-String-轉換成-數值-Number-1" class="headerlink" title="字串(String) 轉換成 數值(Number)"></a>字串(String) 轉換成 數值(Number)</h3><p>由數值轉換成字串有兩種常見的方法，分別為toString、JSON.stringify。</p>
-<ul>
-<li>toString ，使用方法為 Number.toString(radix)</li>
-</ul>
-<p>與parseInt 相似，一樣具備能自定義進位，預設一樣是十進位。<br>範例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(123).toString()  // &quot;123&quot;</span><br><span class="line">(123).toString(2) // &quot;1111011&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="專案環境建立"><a href="#專案環境建立" class="headerlink" title="專案環境建立"></a>專案環境建立</h2><p>就以本身自己是拿到 MAC M2 air ，就立刻根據自身開發需求進行工具安裝<br>（如果沒有想法也可以參考這一篇 <a target="_blank" rel="noopener" href="https://hackmd.io/@jchans/ryeconMSs">Mac 前端開發環境安裝</a>）</p>
+<p>後續再跟據 專案需求 使用 npm &#x2F; yarn &#x2F; pnpm 等等</p>
+<p>值得一提的是 在公司中可能會處理到多年前專案<br>因此問清楚目前專案 node 版本是一件非常重要的<br>如果沒有問清楚 可能會繞了非常多的路 光要將專案run起 就快要吐血 </p>
+<p>這邊就推薦使用 nvm 這套 node 版本控制工具</p>
+<p>可以在 Terminal 使用以下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm ls // 查看目前已安裝及使用版本</span><br><span class="line">nvm install &#123;對應版本&#125;  // 安裝對應版本</span><br><span class="line">nvm use &#123;對應版本&#125;  // 使用對應版本</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>JSON.stringify ，使用方法為　JSON.stringify(value)</li>
-</ul>
-<p>其value不受型別限制，大部分用於物件矩陣上。<br>範例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(42) // &quot;42&quot;</span><br><span class="line">JSON.stringify(true) // &quot;true&quot;</span><br><span class="line">JSON.stringify(null) // &quot;null&quot;</span><br><span class="line">JSON.stringify(&#x27;Hello World&#x27;) // &quot;&quot;Hello World&quot;&quot;，字串會在外面再包一層引號！</span><br></pre></td></tr></table></figure>
+<p>透過上述指令可以快速安裝及切換使用版本<br>也避免繞更多遠路</p>
+<p>當然如果公司有文件就可以避免這樣的事情發生XD</p>
+<hr>
+<h2 id="專案協作流程"><a href="#專案協作流程" class="headerlink" title="專案協作流程"></a>專案協作流程</h2><p>將專案能在本地 run 起之後，可能會以為是從解 Bug 開始<br>但比起解 Bug 更重要的事 - 了解工作協作 git flow</p>
+<p>每一個開發團隊都有自己的開發方式<br>也就會有對應的 git flow</p>
+<p>以自身團隊來說 會分成 master dev sit uat feat-XX hot-fix 等分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">master  // 代表目前產品運行分支</span><br><span class="line">hot-fix // 發生營運問題修正測試分支 從 master 拉出</span><br><span class="line">dev // 開發環境主分支</span><br><span class="line">feat-XX // 開發修改個別功能 從 dev 拉出</span><br><span class="line">sit // feat開發完成合併至dev 前端運作無誤後 再合併至 sit 交付給 QA 測試 之分支</span><br><span class="line">uat // QA 測試後 bug 修改完成 交付給 客戶 運行分支</span><br></pre></td></tr></table></figure>
 
-<p>以上就是本篇文章想告訴大家的，謝謝大家收看。</p>
+<p>最後再透過 比較 前後版本 uat 將其程式碼更新至 master</p>
+<p>就可以完成一個完整的專案開發</p>
+<p>其中特別要注意的點：</p>
+<ol>
+<li>要 push &#x2F; merge 程式碼時，先繼續 pull &#x2F; fetch 目前分支進度，若發生conflict 可在本地先處理，<br>若沒有用 pull &#x2F; fetch 則容易遇到 git檔案差異 導致不知如何解決</li>
+<li>如果遇到 conflict 時請用 rebase &#x2F; merge 解決，千萬不要便宜行事 使用 merge -f 或是 revert ，<br>前者會將之前 git flow 歷史紀錄覆蓋， 而後者更可能導致版本混亂、導致無法查明檔案差異。</li>
+</ol>
+<hr>
+<h2 id="專案開發流程-專案使用套件-code-style"><a href="#專案開發流程-專案使用套件-code-style" class="headerlink" title="專案開發流程(專案使用套件, code-style)"></a>專案開發流程(專案使用套件, code-style)</h2><p>在了解團隊開發 gitflow 後，通常第一個接到的小任務是<br>去改一些小bug 或是 去開發一些與產品不直接相關之功能</p>
+<p>依稀記得 第一個接到的任務是 去將某一頁表單頁面更換其選項文字內容</p>
+<p>在當時 就心急想求表現，就立刻犯了錯誤，被同事說到，記得看一下其他功能怎麼寫，<br>要符合專案相關 code-style ，因為自身專案是有支援 i18n 多國語言，<br>所以會有語言包相關檔案，而任何出現 字串文字 內容應該都放在其語言包，<br>而不應該存留在個別功能檔案，且要了解其功能位階，才能避免重工及造成衝突。</p>
+<p>此外也有一些 套件上使用的選擇<br>例如專案團隊是使用 redux-saga 作為 API 串接，<br>且因為要方便管理，利用檔案夾分層 以及 利用 selector 來取得全域變數，<br>雖然會導致 每次串接 API 時，需要在四個檔案(action, saga, reducer, selector)分別寫上對應的 code ，<br>使得開發速度會受限制，而目前可能有更新更簡潔的寫法，<br>但需要考量團隊開發人員的技術是否有跟上，或是是否有時間可以開分支導入，<br>因為每一項新套件、新技術都需要花時間以及相關人員的訓練，<br>此外也要考量後續人員的便利性，若導入一冷門技術，後續無人維護就得不償失了。</p>
+<p>以上就是我到職一個月的心得，很開心能與大家分享轉職前端工程師這條路的所見，<br>希望未來還有更多機會可以分享，謝謝。</p>
 
     </div>
 
@@ -240,8 +234,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"># 前端</a>
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%B6%93%E9%A9%97/" rel="tag"># 工作經驗</a>
           </div>
 
         
@@ -250,13 +244,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/10/02/2022-10-02-JS-ch2/" rel="prev" title="JavaScript Chap.2 ：記憶體">
-      <i class="fa fa-chevron-left"></i> JavaScript Chap.2 ：記憶體
+    <a href="/2022/12/25/2022-12-25-INT-JS/" rel="prev" title="轉職前端工程師 - JavaScript  面試題">
+      <i class="fa fa-chevron-left"></i> 轉職前端工程師 - JavaScript  面試題
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/10/07/2022-10-07-JS-ch4/" rel="next" title="JavaScript Chap.4 ： 變數的宣告與提升">
-      JavaScript Chap.4 ： 變數的宣告與提升 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -315,7 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-Chap-3-%EF%BC%9A-%E5%9E%8B%E5%88%A5%E8%BD%89%E6%8F%9B%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">JavaScript Chap.3 ： 型別轉換方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9E%8B%E5%88%A5%E8%BD%89%E6%8F%9B%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">型別轉換方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-String-%E8%BD%89%E6%8F%9B%E6%88%90-%E6%95%B8%E5%80%BC-Number"><span class="nav-number">1.1.1.</span> <span class="nav-text">字串(String) 轉換成 數值(Number)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2-String-%E8%BD%89%E6%8F%9B%E6%88%90-%E6%95%B8%E5%80%BC-Number-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">字串(String) 轉換成 數值(Number)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">專案環境建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E5%8D%94%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">專案協作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E9%96%8B%E7%99%BC%E6%B5%81%E7%A8%8B-%E5%B0%88%E6%A1%88%E4%BD%BF%E7%94%A8%E5%A5%97%E4%BB%B6-code-style"><span class="nav-number">3.</span> <span class="nav-text">專案開發流程(專案使用套件, code-style)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
